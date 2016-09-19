@@ -10,3 +10,5 @@ env.json
 /src/assets/styles/*.css
 *.map
 npm-debug.log
+
+src/app/shared/constant/env.ts
