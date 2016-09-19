@@ -1,0 +1,68 @@
+<div *ngIf="!authService.isLoggedIn()" class="row splash-brand">
+    <p>episode alert <img src="img/logo-71x50.png" alt="Episode Alert"/></p>
+</div>
+<div *ngIf="!authService.isLoggedIn()" class="marketing">
+    <div class="col-xs-4 col-md-4">
+        <h1>Follow</h1>
+        <p>Find your favorite<br/>TV Series</p>
+    </div>
+    <div class="col-xs-4 col-md-4">
+        <h1>Get Notified</h1>
+        <p>Receive email<br/>notifications</p>
+    </div>
+    <div class="col-xs-4 col-md-4">
+        <h1>Keep Track</h1>
+        <p>Remember episodes<br/>you've seen</p>
+    </div>
+</div>
+
+<div class="row splash-fanart">
+
+    <div class="row">
+        <!-- Trending Series -->
+        <div class="col-md-12 col-lg-12 trending-background-color">
+            <h1>Trending series</h1>
+            <ul class="splash-posters">
+                <li class="series" *ngFor="let series of trendingSeries">
+                    <a [routerLink]="['/series', series.unique_name]">
+
+                        <img class="img-responsive poster"
+                             src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
+                             alt="{{ series.name }}"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <!-- Most followed in last 15 days -->
+        <div class="col-md-6 col-lg-6 trending-background-color">
+            <h1>New and popular</h1>
+            <ul class="splash-posters">
+                <li class="series" *ngFor="let series of topSeries">
+                    <a href="/series/{{ series.unique_name }}">
+                        <img class="img-responsive poster"
+                             src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
+                             alt="{{ series.name }}"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-6 col-lg-6 trending-background-color ">
+            <h1>Browse all series</h1>
+            <ul>
+                <li class="genre" *ngFor="let genre of seriesGenres">
+                    <a href="/series/genre/{{genre.genre | lowercase }}">{{ genre.genre }}</a>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+</div>
+

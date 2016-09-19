@@ -1,0 +1,129 @@
+/*
+ * Styles for the trending page
+ */
+
+.splash-fanart {
+
+  //@media(max-width: $screen-xs-max){ height: 405px; }
+  //@media(min-width: $screen-sm-min){ height: 740px; }
+  //@media(min-width: $screen-md-min){ height: 740px; }
+  //@media(min-width: $screen-lg-min){ height: 740px; }
+  //@media #{$hidpi-screen}{
+  //    height: 475px;
+  //}
+  position: relative;
+
+  .fanart-background {
+    position: absolute;
+    background-size: cover;
+    background-position: center bottom;
+    width: 100%;
+    @media(max-width: $screen-xs-max){ height: 405px; }
+    @media(min-width: $screen-sm-min){ height: 740px; }
+    @media(min-width: $screen-md-min){ height: 740px; }
+    @media(min-width: $screen-lg-min){ height: 740px; }
+    @media #{$hidpi-screen}{
+      height: 475px;
+    }
+
+    // HiDPI screens
+    @media only screen and (-webkit-min-device-pixel-ratio : 2),
+    only screen and (min-device-pixel-ratio : 2),
+    only screen and (min--moz-device-pixel-ratio: 2) {
+
+      height: 475px;
+    }
+
+  }
+}
+.fanart-background.ng-hide-add, .fanart-background.ng-hide-remove {
+  /* this is required as of 1.3x to properly
+     apply all styling in a show/hide animation */
+  transition: 0s linear all;
+}
+
+.fanart-background.ng-hide-add-active,
+.fanart-background.ng-hide-remove-active {
+  /* the transition is defined in the active class */
+  transition: 1s linear all;
+}
+
+.fanart-background.ng-hide-add { opacity: 1; }
+.fanart-background.ng-hide-add.ng-hide-add-active { opacity: 0; }
+.fanart-background.ng-hide-remove { opacity: 0; }
+.fanart-background.ng-hide-remove.ng-hide-remove-active { opacity: 1; }
+
+
+.splash-brand {
+  @media(max-width: $screen-xs-max){ font-size: 34px; }
+  @media(min-width: $screen-sm-min){ font-size: 42px; }
+  @media(min-width: $screen-md-min){ font-size: 52px; }
+  @media(min-width: $screen-lg-min){ font-size: 52px; }
+  font-size: 52px;
+  text-align: center;
+}
+
+ul{
+  list-style: none;
+  li{
+    display: inline-block;
+  }
+
+  .genre{
+    line-height: 30px;
+    margin-right: 20px;
+  }
+}
+
+.splash-fanart-fade {
+  width: 100%;
+  height: 100%;
+  background: transparent url('/img/fanart-fade.png') repeat;
+  display: block;
+  position: absolute;
+}
+
+.marketing {
+  text-align: center;
+  width: 100%;
+
+  h1 {
+    @media(max-width: $screen-xs-max){ font-size: 24px; }
+    @media(min-width: $screen-sm-min){ font-size: 30px; }
+  }
+
+  p {
+    @media(max-width: $screen-xs-max){ font-size: 12px; }
+    @media(min-width: $screen-sm-min){ font-size: 18px; }
+  }
+}
+
+.trending-background-color{
+  //min-height: 250px;
+  background-color: rgba($background-color, 0.8);
+}
+
+.poster {
+  display: inline-block;
+  padding: 5px;
+}
+
+.splash-posters {
+  bottom: 0;
+  width: 100%;
+
+  li {
+    display: inline-block;
+    cursor: pointer;
+    width: 20%;
+    list-style: none;
+    text-align: center;
+    position: relative;
+  }
+
+  .active{
+    border-bottom: 10px solid $bright-highlight;
+  }
+}
+
+
