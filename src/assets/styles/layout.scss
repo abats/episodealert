@@ -1,18 +1,24 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,700);
-
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,600);
 
 
 @CHARSET "ISO-8859-1";
 
 body {
   background-color: $background-color;
-  color: #fff;
+  color: #e7e7e7;
   font-family: $font-family;
   font-weight: 400;
   overflow-y: scroll;
 }
 
+.user-greeting{
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  color: $lighter-text;
+  padding: 30px 0px 30px 0px;
+}
 
 #masterUI{
   //Flexbox
@@ -24,15 +30,24 @@ body {
 // usage; description of series, profile welcome, other info
 h1 {
   @media(max-width: $screen-xs-max){ padding-bottom: 10px; }
-  text-shadow: 2px 2px $lighter-text-shadow;
-  display: inline-block;
-  margin-right: 10px;
-  font-size: 160%;
 
-  //TODO move to vars
-  font-family: $font-header;
-  font-weight: 600;
+  padding-bottom: 14px;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.1em;
 }
+
+h2 {
+  @media(max-width: $screen-xs-max){ padding-bottom: 10px; }
+
+  padding-bottom: 14px;
+  font-size: 15px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
 
 /* reset some defaults */
 button:focus,
@@ -97,6 +112,10 @@ ul {
     font-size: 1.3em;
   }
 
+}
+
+.row-ea{
+  background-color: $primary-color;
 }
 
 .password-reset{
@@ -172,9 +191,20 @@ ul {
   }
 }
 
+.navbar-nav{
+  float: right;
+}
+
 .container--navbar {
+  font-family: $font-header;
   font-weight: 300;
-  background-color: #252525;
+  background-color: $primary-color;
+  letter-spacing: 0.05em;
+
+  .navbar-brand{
+    letter-spacing: 0.1em;
+  }
+
   @media(min-width: $screen-sm-min){ padding: 12px 0px 12px 20px; }
 
   p{
@@ -185,6 +215,7 @@ ul {
 }
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand{
   margin-left: -5px;
+  padding: 15px 15px 0px 0px;
 }
 .footer{
   margin-top: 20px;
@@ -287,7 +318,7 @@ li.disabled{
 .navbar-default {
   margin: auto;
   border: none;
-  background-color: $background-color;
+  background-color: $primary-color;
 
   .navbar-form {
     padding-top: 9px;
@@ -329,19 +360,24 @@ li.disabled{
   }
 
   .navbar-link {
-    color: #fff;
+    color: $light-text;
   }
 
   .navbar-text > a:hover{
     color: $highlight-color;
   }
 
+  .navbar-nav > li {
+    padding: 14px 14px 8px 30px;
+  }
+
   .navbar-nav > li > a {
-    color: #fff;
+    color: $light-text;
     text-transform: uppercase;
-    top: 2px;
-    height: 46px;
-    font-size: 15px;
+    top: 6px;
+    font-size: 16px;
+    padding: 0px 0px 6px 0px;
+
 
     @media(max-width: $screen-md-min){
       padding-right:0px; padding-left:5px;
@@ -354,14 +390,20 @@ li.disabled{
 
   .navbar-nav > li > a:hover,
   .navbar-nav > li > a:focus {
-    color: $bright-highlight;
+    color: $light-text;
+    border-bottom: 1px solid $light-text;
+  }
+
+  .active{
+    border-bottom: 1px solid $light-text;
   }
 
   .navbar-nav > .active > a,
   .navbar-nav > .active > a:hover,
   .navbar-nav > .active > a:focus {
-    color: $bright-highlight;
-    background-color: #252525;
+    color: $light-text;
+    background-color: pink;
+    border-bottom: 1px solid $light-text;
   }
 
   .btn {

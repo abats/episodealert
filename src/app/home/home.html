@@ -16,53 +16,144 @@
     </div>
 </div>
 
-<div class="row splash-fanart">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <p class="user-greeting">
+                Hi Larry, welcome back to Episode Laert. You have <a href="">9 unwatched episodes</a> waiting for you. Currently <a href="">3 of your shows</a> are airing.
+            </p>
+        </div>
+    </div>
+</div>
 
+
+<div class="row-ea">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <h1>Currently airing and recommended</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+
+                <ul class="home-banners">
+                    <li *ngFor="let series of spotlightSeries" class="spotlight">
+                        <div class="gradient-effect">
+                            <img class="img-responsive gradient-effect"
+                             src="{{ series.unique_name | asFanartPipe : series.fanart_image }}"
+                             alt="{{ series.name }}"/>
+                        </div>
+                        <span class="badge">
+                            <span class="rating">{{ series.rating }}</span>
+                            <span class="rating-source">users</span>
+                        </span>
+                        <button class="ea-btn ea-btn--follow notfollowing spotlight-button-location">Follow</button>
+                        <h3>{{ series.name }} <span class="season"> season {{ series.season_amount }} </span></h3>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
     <div class="row">
         <!-- Trending Series -->
-        <div class="col-md-12 col-lg-12 trending-background-color">
-            <h1>Trending series</h1>
-            <ul class="splash-posters">
-                <li class="series" *ngFor="let series of trendingSeries">
-                    <a [routerLink]="['/series', series.unique_name]">
-
-                        <img class="img-responsive poster"
-                             src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
-                             alt="{{ series.name }}"/>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-    </div>
-
-    <div class="row">
-        <!-- Most followed in last 15 days -->
         <div class="col-md-6 col-lg-6 trending-background-color">
-            <h1>New and popular</h1>
+            <h2>Coming soon</h2>
             <ul class="splash-posters">
-                <li class="series" *ngFor="let series of topSeries">
-                    <a href="/series/{{ series.unique_name }}">
+                <li class="series" *ngFor="let series of trendingSeries; let i=index">
+                    <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 3">
+
                         <img class="img-responsive poster"
                              src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
                              alt="{{ series.name }}"/>
+                        <span class="title">
+                            {{ series.name }}
+                        </span>
+                        <span class="season">
+                            Season {{ series.season_amount }}
+                        </span>
                     </a>
                 </li>
             </ul>
         </div>
 
-        <div class="col-md-6 col-lg-6 trending-background-color ">
-            <h1>Browse all series</h1>
-            <ul>
-                <li class="genre" *ngFor="let genre of seriesGenres">
-                    <a href="/series/genre/{{genre.genre | lowercase }}">{{ genre.genre }}</a>
+        <!-- Trending Series -->
+        <div class="col-md-6 col-lg-6 trending-background-color">
+            <h2>Most new followers in 2016</h2>
+            <ul class="splash-posters">
+                <li class="series" *ngFor="let series of trendingSeries; let i = index">
+                    <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 3">
+
+                        <img class="img-responsive poster"
+                             src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
+                             alt="{{ series.name }}"/>
+                        <span class="title">
+                            {{ series.name }}
+                        </span>
+                        <span class="season">
+                            Season {{ series.season_amount }}
+                        </span>
+                    </a>
                 </li>
             </ul>
         </div>
 
-
     </div>
-
-
 </div>
+
+
+<!--<div class="container">-->
+    <!--<div class="row">-->
+        <!--&lt;!&ndash; Trending Series &ndash;&gt;-->
+        <!--<div class="col-md-12 col-lg-12 trending-background-color">-->
+            <!--<h1>Trending series</h1>-->
+            <!--<ul class="splash-posters">-->
+                <!--<li class="series" *ngFor="let series of trendingSeries">-->
+                    <!--<a [routerLink]="['/series', series.unique_name]">-->
+
+                        <!--<img class="img-responsive poster"-->
+                             <!--src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"-->
+                             <!--alt="{{ series.name }}"/>-->
+                    <!--</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div class="container">-->
+
+    <!--<div class="row">-->
+        <!--&lt;!&ndash; Most followed in last 15 days &ndash;&gt;-->
+        <!--<div class="col-md-6 col-lg-6 trending-background-color">-->
+            <!--<h1>New and popular</h1>-->
+            <!--<ul class="splash-posters">-->
+                <!--<li class="series" *ngFor="let series of topSeries">-->
+                    <!--<a href="/series/{{ series.unique_name }}">-->
+                        <!--<img class="img-responsive poster"-->
+                             <!--src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"-->
+                             <!--alt="{{ series.name }}"/>-->
+                    <!--</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+        <!--<div class="col-md-6 col-lg-6 trending-background-color ">-->
+            <!--<h1>Browse all series</h1>-->
+            <!--<ul>-->
+                <!--<li class="genre" *ngFor="let genre of seriesGenres">-->
+                    <!--<a href="/series/genre/{{genre.genre | lowercase }}">{{ genre.genre }}</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+
+    <!--</div>-->
+
+<!--</div>-->
 

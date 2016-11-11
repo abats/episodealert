@@ -14,6 +14,7 @@ import { Title } from '@angular/platform-browser';
 export class HomeComponent implements OnInit {
     trendingSeries: Series[];
     topSeries: Series[];
+    spotlightSeries: Series[];
     seriesGenres: any;
 
     constructor( private seriesService: SeriesService,
@@ -39,6 +40,14 @@ export class HomeComponent implements OnInit {
         );
     }
 
+    getSpotlightSeries() {
+        this.seriesService.getSpotlightSeries().then(
+            (series) => {
+                this.spotlightSeries = series;
+            }
+        );
+    }
+
     getSeriesGenres() {
         this.seriesGenres = this.seriesService.getSeriesGenres();
     }
@@ -47,6 +56,7 @@ export class HomeComponent implements OnInit {
         this.getTrendingSeries();
         this.getTopSeries();
         this.getSeriesGenres();
+        this.getSpotlightSeries();
 
         console.log(this.authService.isLoggedIn());
 

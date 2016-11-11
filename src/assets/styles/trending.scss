@@ -2,6 +2,114 @@
  * Styles for the trending page
  */
 
+
+.gradient-effect{
+  position: relative;
+  display: block;
+}
+.gradient-effect::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  bottom: -1px;
+  right: 0;
+  height: 40%;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+20,000000+100&0+2,0.89+100 */
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 2%, rgba(0,0,0,0.16) 20%, rgba(0,0,0,0.89) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 2%,rgba(0,0,0,0.16) 20%,rgba(0,0,0,0.89) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 2%,rgba(0,0,0,0.16) 20%,rgba(0,0,0,0.89) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#e3000000',GradientType=0 ); /* IE6-9 */
+}
+
+.home-banners{
+
+  margin-bottom: 22px;
+
+  li:first-child {
+    img {
+      padding-right: 15px;
+    }
+
+    .badge{
+      top: 20px;
+      right: 35px;
+    }
+  }
+
+  li:nth-child(2) {
+
+    img{
+      padding-left: 15px;
+    }
+
+    .badge{
+      top: 20px;
+      right: 20px;
+    }
+
+  }
+
+}
+
+.spotlight{
+
+  width: 50%;
+  position: relative;
+  display: inline-block;
+
+  .spotlight-button-location{
+    position: absolute;
+    bottom: 36px;
+    z-index: 2;
+    float: right;
+    right: 35px;
+  }
+
+  h3{
+    z-index: 3;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 70%;
+
+    span{
+      margin-left: 6px;
+      font-weight: 300;
+    }
+  }
+
+  .badge{
+    border-radius: 0px;
+    background-color: #14b6cc;
+    border: none;
+    height: 55px;
+    width: 55px;
+    top: 20px;
+    right: 35px;
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 8px;
+
+    .rating{
+      font-weight: 300;
+      font-size: 20px;
+      display: block;
+    }
+
+    .rating-source{
+      margin-top: 2px;
+      font-weight: 300;
+      font-size: 11px;
+      display: block;
+    }
+  }
+
+}
+
 .splash-fanart {
 
   //@media(max-width: $screen-xs-max){ height: 405px; }
@@ -108,22 +216,42 @@ ul{
   padding: 5px;
 }
 
-.splash-posters {
-  bottom: 0;
-  width: 100%;
+.splash-posters{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 
-  li {
-    display: inline-block;
-    cursor: pointer;
-    width: 20%;
-    list-style: none;
-    text-align: center;
-    position: relative;
-  }
+    li{
+      background-color: $primary-lighter;
+      display: inline-block;
+      width: 30%;
+    }
 
-  .active{
-    border-bottom: 10px solid $bright-highlight;
-  }
+    img{
+      padding: 0px;
+    }
+
+    a{
+      text-decoration: none;
+    }
+
+    span{
+      display: block;
+
+    }
+  
+    .title{
+      padding:  10px 0px 5px 20px;
+      font-family: Open Sans, sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    .season{
+      padding:  0px 0px 10px 20px;
+      font-weight: 300;
+      font-size: 11px;
+      color: $light-text;
+    }
+
 }
-
-

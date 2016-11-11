@@ -28,17 +28,19 @@
             </div>
         </div>
 
-        <tabset *ngIf="tabs">
-            <tab *ngFor="let tab of tabs"
-                 [heading]="tab.title"
-                 (select)="tab.active = true"
-                 (deselect)="tab.active = false"
-                 [disabled]="tab.disabled"
-                 [removable]="tab.removable"
-                 (removed)="removeTabHandler(tab)">
-                {{tab?.content}}
-            </tab>
-        </tabset>
+        <div class="col-xs-12 col-sm-12 col-md-8 seasons">
+            <tabset *ngIf="tabs">
+                <tab *ngFor="let tab of tabs"
+                     [heading]="tab.title"
+                     (select)="tab.active = true"
+                     (deselect)="tab.active = false"
+                     [disabled]="tab.disabled"
+                     [removable]="tab.removable"
+                     (removed)="removeTabHandler(tab)">
+                    {{tab?.content}}
+                </tab>
+            </tabset>
+        </div>
 
     </div>
 

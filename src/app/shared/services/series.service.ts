@@ -11,6 +11,7 @@ export class SeriesService {
     private baseUrl: string;
     private singleSeriesUrl: string;
     private topSeriesUrl: string;
+    private spotlightSeriesUrl: string;
     private trendingSeriesUrl: string;
     private profileUrl: string;
 
@@ -18,6 +19,7 @@ export class SeriesService {
         this.baseUrl = CONSTANTS.MAIN.APP.API_BASE_URL;
         this.topSeriesUrl = this.baseUrl + 'series/top';
         this.trendingSeriesUrl = this.baseUrl + 'series/trending';
+        this.spotlightSeriesUrl = this.baseUrl + 'series/spotlight';
         this.profileUrl = this.baseUrl + 'profile/following';
         this.singleSeriesUrl = this.baseUrl + 'series/';
     }
@@ -31,6 +33,13 @@ export class SeriesService {
 
     getTopSeries(): Promise<Series[]> {
         return this.http.get(this.topSeriesUrl)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+
+    getSpotlightSeries(): Promise<Series []> {
+        return this.http.get(this.spotlightSeriesUrl)
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);

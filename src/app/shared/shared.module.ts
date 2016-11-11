@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { UrlPipe } from './pipes/url-helper.pipe';
+import { FanartPipe } from './pipes/fanart-helper.pipe';
 
 @NgModule({
     declarations: [
-        UrlPipe
+        UrlPipe,
+        FanartPipe
     ],
     exports: [
-        UrlPipe
+        UrlPipe,
+        FanartPipe
     ]
 })
 export class SharedModule {
