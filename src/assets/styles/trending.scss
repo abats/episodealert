@@ -24,7 +24,7 @@
 
 .home-banners{
 
-  margin-bottom: 22px;
+  margin-bottom: 30px;
 
   li:first-child {
     img {
@@ -60,25 +60,25 @@
 
   .spotlight-button-location{
     position: absolute;
-    bottom: 36px;
+    bottom: 30px;
     z-index: 2;
     float: right;
-    right: 35px;
+    right: 30px;
   }
 
   h3{
     z-index: 3;
     font-family: 'Raleway', sans-serif;
-    font-weight: 600;
-    font-size: 22px;
+    font-weight: 400;
+    font-size: 20px;
     position: absolute;
-    bottom: 30px;
+    bottom: 15px;
     left: 30px;
     width: 70%;
 
     span{
-      margin-left: 6px;
-      font-weight: 300;
+      margin-left: 9px;
+      font-weight: 100;
     }
   }
 
@@ -241,15 +241,15 @@ ul{
     }
   
     .title{
-      padding:  10px 0px 5px 20px;
+      padding:  20px 0px 5px 20px;
       font-family: Open Sans, sans-serif;
-      font-weight: 600;
+      font-weight: 400;
       font-size: 11px;
     }
 
     .season{
-      padding:  0px 0px 10px 20px;
-      font-weight: 300;
+      padding:  0px 0px 20px 20px;
+      font-weight: 400;
       font-size: 11px;
       color: $light-text;
     }
