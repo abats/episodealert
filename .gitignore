@@ -12,3 +12,5 @@ env.json
 npm-debug.log
 
 src/app/shared/constant/env.ts
+
+src/app/shared/constant/env.ts
