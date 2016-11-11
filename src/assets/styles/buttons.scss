@@ -3,12 +3,11 @@
  */
 .ea-btn{
   background-color: rgba(0,0,0,0.5);
-  border-radius: 20px;
 }
 
 .ea-btn:hover{
   color: $bright-highlight;
-  border: 2px solid $bright-highlight;
+  border: 1px solid $bright-highlight;
 }
 
 /*
@@ -16,16 +15,16 @@
  */
 .ea-btn--follow{
   font-size: 70%;
-  border: 2px solid #00ff90;
+  border: 1px solid #00ff90;
   color: #00ff90;
-  padding: 4px 8px 4px 8px;
+  padding: 10px 20px 10px 20px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.12em;
 }
 
 .notfollowing{
-  color: #33B37B;
-  border-color: #33B37B;
+  color: #00ff90;
+  border-color: #00ff90;
 }
 
 /*
