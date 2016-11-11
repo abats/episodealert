@@ -48,16 +48,22 @@
       right: 20px;
     }
 
+    .spotlight-button-location{
+      right: 20px;
+    }
+
+    h3{
+      left: 45px;
+    }
   }
 
-}
+  .spotlight{
 
-.spotlight{
+    width: 50%;
+    position: relative;
+    display: inline-block;
 
-  width: 50%;
-  position: relative;
-  display: inline-block;
-
+<<<<<<< HEAD
   .spotlight-button-location{
     position: absolute;
     bottom: 30px;
@@ -79,36 +85,64 @@
     span{
       margin-left: 9px;
       font-weight: 100;
-    }
-  }
-
-  .badge{
-    border-radius: 0px;
-    background-color: #14b6cc;
-    border: none;
-    height: 55px;
-    width: 55px;
-    top: 20px;
-    right: 35px;
-    text-align: center;
-    padding-top: 10px;
-    padding-left: 8px;
-
-    .rating{
-      font-weight: 300;
-      font-size: 20px;
-      display: block;
+=======
+    .spotlight-button-location{
+      position: absolute;
+      bottom: 36px;
+      z-index: 2;
+      float: right;
+      right: 35px;
     }
 
-    .rating-source{
-      margin-top: 2px;
-      font-weight: 300;
-      font-size: 11px;
-      display: block;
+
+    h3{
+      z-index: 3;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 22px;
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      width: 70%;
+
+      span{
+        margin-left: 6px;
+        font-weight: 300;
+      }
+>>>>>>> origin/master
     }
+
+    .badge{
+      border-radius: 0px;
+      background-color: #14b6cc;
+      border: none;
+      height: 55px;
+      width: 55px;
+      top: 20px;
+      right: 35px;
+      text-align: center;
+      padding-top: 10px;
+      padding-left: 8px;
+
+      .rating{
+        font-weight: 300;
+        font-size: 20px;
+        display: block;
+      }
+
+      .rating-source{
+        margin-top: 2px;
+        font-weight: 300;
+        font-size: 11px;
+        display: block;
+      }
+    }
+
   }
 
 }
+
+
 
 .splash-fanart {
 
