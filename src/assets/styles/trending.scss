@@ -7,6 +7,7 @@
   position: relative;
   display: block;
 }
+
 .gradient-effect::before{
   content: '';
   position: absolute;
@@ -28,10 +29,8 @@
   margin-bottom: 30px;
 
   li:first-child {
-    img {
-      padding-right: 15px;
-    }
-      
+    padding-right: 15px;
+
     .spotlight-button-location{
       right: 40px;
       bottom: 22px;
@@ -45,9 +44,7 @@
 
   li:nth-child(2) {
 
-    img{
-      padding-left: 15px;
-    }
+    padding-left: 15px;
 
     .badge{
         top: 25px;

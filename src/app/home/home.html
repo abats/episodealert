@@ -39,17 +39,20 @@
 
                 <ul class="home-banners">
                     <li *ngFor="let series of spotlightSeries" class="spotlight">
-                        <div class="gradient-effect">
-                            <img class="img-responsive gradient-effect"
-                             src="{{ series.unique_name | asFanartPipe : series.fanart_image }}"
-                             alt="{{ series.name }}"/>
-                        </div>
-                        <span class="badge">
-                            <span class="rating">{{ series.rating }}</span>
-                            <span class="rating-source">users</span>
-                        </span>
+                        <a [routerLink]="['/series', series.unique_name]">
+                            <div class="gradient-effect">
+                                <img class="img-responsive"
+                                 src="{{ series.unique_name | asFanartPipe : series.fanart_image }}"
+                                 alt="{{ series.name }}"/>
+                            </div>
+                            <span class="badge">
+                                <span class="rating">{{ series.rating }}</span>
+                                <span class="rating-source">users</span>
+                            </span>
+
+                            <h3>{{ series.name }} <span class="season"> season {{ series.season_amount }} </span></h3>
+                        </a>
                         <button class="ea-btn ea-btn--follow notfollowing spotlight-button-location"><i class="fa fa-angle-right" aria-hidden="true" style="padding: 0px 10px 0px 0px"></i>Follow</button>
-                        <h3>{{ series.name }} <span class="season"> season {{ series.season_amount }} </span></h3>
                     </li>
                 </ul>
 
@@ -76,6 +79,7 @@
                         <span class="season">
                             Season {{ series.season_amount }}
                         </span>
+
                     </a>
                 </li>
             </ul>
@@ -83,7 +87,7 @@
 
         <!-- Trending Series -->
         <div class="col-md-6 col-lg-6 trending-background-color">
-            <h2>Most new followers in 2016</h2>
+            <h2>Most new followers in __CURRENTYEAR__</h2>
             <ul class="splash-posters">
                 <li class="series" *ngFor="let series of trendingSeries; let i = index">
                     <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 3">
