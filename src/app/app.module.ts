@@ -5,6 +5,7 @@ import { appRoutingProviders, routing } from './app.routing';
 import { NavbarModule } from './shared';
 import { HomeModule } from './home/home.module';
 import { GuideModule } from './guide/guide.module';
+import { MyshowsModule } from './myshows/myshows.module';
 import { TodolistModule } from './todolist/todolist.module';
 import { HttpModule } from '@angular/http';
 import { SeriesDetailModule } from './series/series-detail/series-detail.module';
@@ -17,6 +18,7 @@ import { SeriesDetailModule } from './series/series-detail/series-detail.module'
         NavbarModule,
         HomeModule,
         GuideModule,
+        MyshowsModule,
         TodolistModule,
         SeriesDetailModule,
         routing
