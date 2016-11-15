@@ -10,6 +10,7 @@ export class SeriesService {
 
     private baseUrl: string;
     private singleSeriesUrl: string;
+    private singleSeasonUrl: string;
     private topSeriesUrl: string;
     private spotlightSeriesUrl: string;
     private trendingSeriesUrl: string;
@@ -22,10 +23,18 @@ export class SeriesService {
         this.spotlightSeriesUrl = this.baseUrl + 'series/spotlight';
         this.profileUrl = this.baseUrl + 'profile/following';
         this.singleSeriesUrl = this.baseUrl + 'series/';
+        this.singleSeasonUrl = this.baseUrl + 'series/episodesbyseason/';
     }
 
     getSingleSeries(uniqueName): Promise<Series> {
         return this.http.get(this.singleSeriesUrl + uniqueName)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+
+    getSeriesSeason(seriesId, seriesSeason) {
+        return this.http.get(this.singleSeasonUrl + seriesId + '/' + seriesSeason)
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);

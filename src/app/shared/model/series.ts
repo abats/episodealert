@@ -20,7 +20,7 @@ export class Series {
     poster_image_converted: boolean;
     rating: string;
     rating_updated: string;
-    season_amount: string;
+    season_amount: number;
     series_id: string;
     specials_amount: string;
     status: string;

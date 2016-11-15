@@ -1,53 +1,62 @@
-<div class="series-detail" *ngIf="series">
-    <div class="row info-text-top">
-        <h1>{{ series.name }}</h1>
+<div class="container">
 
-        <!--<follow-button series="series"></follow-button>-->
-        <!--<archive-button series="series"></archive-button>-->
+    <div class="series-detail" *ngIf="series">
+        <div class="row info-text-top">
+            <h1>{{ series.name }}</h1>
 
-        <p class="hidden-xs hidden-xm">{{ series.description }}</p>
-    </div>
+            <!--<follow-button series="series"></follow-button>-->
+            <!--<archive-button series="series"></archive-button>-->
 
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-4 series-left">
+            <p class="hidden-xs hidden-xm">{{ series.description }}</p>
+        </div>
 
-            <img class="img-responsive hidden-xs hidden-sm"
-                 src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
-                 alt="{{ series.name }}"/>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 series-left">
 
-            <div class="series-details-extra">
-                <dl>
-                    <dt> Rating </dt>
-                    <dd> {{ series.rating }} </dd>
-                    <dt> First aired </dt>
-                    <dd> {{ series.firstaired }} </dd>
-                    <dt> Status </dt>
-                    <dd> {{ series.status }} </dd>
-                </dl>
-                <a target="new" href="http://www.imdb.com/title/{{ series.imdb_id }}/">IMDB</a>
+                <img class="img-responsive hidden-xs hidden-sm"
+                     src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
+                     alt="{{ series.name }}"/>
+
+                <div class="series-details-extra">
+                    <dl>
+                        <dt> Rating </dt>
+                        <dd> {{ series.rating }} </dd>
+                        <dt> First aired </dt>
+                        <dd> {{ series.firstaired }} </dd>
+                        <dt> Status </dt>
+                        <dd> {{ series.status }} </dd>
+                    </dl>
+                    <a target="new" href="http://www.imdb.com/title/{{ series.imdb_id }}/">IMDB</a>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-8 seasons">
+                <tabset *ngIf="tabs">
+                    <tab *ngFor="let tab of tabs let i = index;"
+                         [heading]="tab.title"
+                         (select)="loadTab(i)"
+                         (deselect)="tab.active = false"
+                         [disabled]="tab.disabled"
+                         [removable]="tab.removable"
+                         (removed)="removeTabHandler(tab)">
+
+
+                        <table>
+                            <tr *ngFor="let episode of tab?.content">
+                                <td>{{ episode.name }}</td>
+                            </tr>
+                        </table>
+                    </tab>
+                </tabset>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-xs-7 col-sm-7 col-md-7">
+
             </div>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-8 seasons">
-            <tabset *ngIf="tabs">
-                <tab *ngFor="let tab of tabs"
-                     [heading]="tab.title"
-                     (select)="tab.active = true"
-                     (deselect)="tab.active = false"
-                     [disabled]="tab.disabled"
-                     [removable]="tab.removable"
-                     (removed)="removeTabHandler(tab)">
-                    {{tab?.content}}
-                </tab>
-            </tabset>
-        </div>
-
     </div>
-
-    <div class="row">
-        <div class="col-xs-7 col-sm-7 col-md-7">
-
-        </div>
-    </div>
-
 </div>

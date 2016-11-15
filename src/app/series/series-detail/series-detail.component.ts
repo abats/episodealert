@@ -18,12 +18,20 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
     uniqueName: string;
 
     public tabs: Array<any> = [
-        {title: 'Dynamic Title 1', content: 'Dynamic content 1'},
-        {title: 'Dynamic Title 2', content: 'Dynamic content 2'},
-        {title: 'Dynamic Title 3', content: 'Dynamic content 3'}
+        // {title: 'Dynamic Title 1', content: 'Dynamic content 1'},
+        // {title: 'Dynamic Title 2', content: 'Dynamic content 2'},
+        // {title: 'Dynamic Title 3', content: 'Dynamic content 3'}
     ];
 
     private subscription: Subscription;
+
+    createSeriesSeasonTabs(seasonAmount) {
+        for (let i = 0; i < seasonAmount; i++) {
+            this.tabs.push( {title: 'Season ' +  i , content: []} );
+        }
+
+        console.log(this.tabs);
+    }
 
     constructor(
             private titleService: Title,
@@ -44,7 +52,17 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
         this.seriesService.getSingleSeries(this.uniqueName).then(
             (series) => {
                 this.series = series;
-                console.log(this.series.name);
+                console.log(series);
+                this.createSeriesSeasonTabs(series.season_amount);
+                this.setActiveTab(series.season_amount - 1);
+            }
+        );
+    }
+
+    getSeriesSeason(seriesId: number, seasonNumber: number) {
+        this.seriesService.getSeriesSeason(seriesId, seasonNumber).then(
+            (season) => {
+                this.tabs[seasonNumber - 1].content = season;
             }
         );
     }
@@ -55,7 +73,14 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
         });
     };
 
+    public loadTab(tab): void {
+        this.getSeriesSeason(this.series.id, tab + 1);
+    }
+
     public setActiveTab(index: number): void {
+        console.log(index);
+        this.loadTab(index);
+        console.log('set active tab');
         this.tabs[index].active = true;
     };
 
