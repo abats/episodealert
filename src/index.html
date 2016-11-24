@@ -18,28 +18,14 @@
 
 </head>
 <body>
+
 <div id="masterUI">
   <!-- loaded by templates-->
 
-  <div id="contentUI" ui-view class="ea-content">
+  <as-main-app>
+    <i class="center-fix main-spinner fa fa-spin fa-spinner"></i>
+  </as-main-app>
 
-    <as-main-app>
-      <i class="center-fix main-spinner fa fa-spin fa-spinner"></i>
-    </as-main-app>
-
-  </div>
-  <div class="row-ea">
-    <div class="container" id="footer">
-      <div class="footer row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          Copyright 2015
-        </div>
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <a href="https://www.facebook.com/episodealert" target="_blank">Facebook</a> :: <a ui-sref="contact">Contact</a> :: <a ui-sref="privacy">Privacy</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <div id="spinner">
     <div class="bounce1"></div>
@@ -47,6 +33,8 @@
     <div class="bounce3"></div>
   </div>
 </div>
+
+
 
 <!-- build:js assets/lib.js -->
 
@@ -76,7 +64,6 @@
           .catch(function(err) { console.error(err); });
 </script>
 <!-- endbuild -->
-
 
 </body>
 </html>

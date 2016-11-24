@@ -125,6 +125,36 @@
 
 }
 
+.episode-list {
+
+  .episode-list-compact {
+    table-layout: fixed;
+    font-size: 13px;
+    width: 100%;
+    color: #e7e7e7;
+
+    .episode-list-compact-item {
+      height: 26px;
+    }
+
+    .episode-list-compact-item-episodenumber,
+    .episode-list-compact-item-rating {
+      width: 20%;
+    }
+
+    .episode-list-compact-item-date {
+      width: 25%;
+    }
+  }
+
+  .episode-list-goto-link {
+    display: block;
+    margin: 15px 0px 15px 0px;
+  }
+
+}
+
+
 
 
 .splash-fanart {
@@ -258,7 +288,7 @@ ul{
   }
 
   .title{
-    padding:  20px 0px 5px 20px;
+    margin:  20px 0px 5px 20px;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
     font-size: 12px;

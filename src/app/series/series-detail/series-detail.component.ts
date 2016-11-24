@@ -17,11 +17,7 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
     series: Series;
     uniqueName: string;
 
-    public tabs: Array<any> = [
-        // {title: 'Dynamic Title 1', content: 'Dynamic content 1'},
-        // {title: 'Dynamic Title 2', content: 'Dynamic content 2'},
-        // {title: 'Dynamic Title 3', content: 'Dynamic content 3'}
-    ];
+    public tabs: Array<any> = [];
 
     private subscription: Subscription;
 
@@ -54,6 +50,7 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
                 this.series = series;
                 console.log(series);
                 this.createSeriesSeasonTabs(series.season_amount);
+                this.getSeriesSeason(series.id, 1);
                 this.setActiveTab(series.season_amount - 1);
             }
         );
@@ -66,12 +63,6 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
             }
         );
     }
-
-    public alertMe(): void {
-        setTimeout(function (): void {
-            alert('You\'ve selected the alert tab!');
-        });
-    };
 
     public loadTab(tab): void {
         this.getSeriesSeason(this.series.id, tab + 1);

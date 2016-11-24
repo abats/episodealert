@@ -68,26 +68,30 @@
             <h2>Coming soon</h2>
             <ul class="splash-posters">
                 <li class="series" *ngFor="let series of trendingSeries; let i=index">
-                    <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 3">
 
+                    <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 3">
                         <img class="img-responsive poster"
                              src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
                              alt="{{ series.name }}"/>
+                    </a>
+
+                    <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 3">
                         <span class="title">
                             {{ series.name }}
                         </span>
-                        <span class="season">
-                            Season {{ series.season_amount }}
-                        </span>
-
                     </a>
+
+                    <span class="season">
+                        Season {{ series.season_amount }}
+                    </span>
+
                 </li>
             </ul>
         </div>
 
         <!-- Trending Series -->
         <div class="col-md-6 col-lg-6 trending-background-color">
-            <h2>Most new followers in __CURRENTYEAR__</h2>
+            <h2>Most new followers in 2016</h2>
             <ul class="splash-posters">
                 <li class="series" *ngFor="let series of trendingSeries; let i = index">
                     <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 3">
@@ -107,57 +111,102 @@
         </div>
 
     </div>
+
+    <div class="row">
+
+        <div class="col-md-4 col-lg-4 trending-background-color">
+            <div class="episode-list">
+                <h2>Your unwatched episodes</h2>
+                <table class="episode-list-compact">
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-episodenumber">S2 - E1</td>
+                    </tr>
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-episodenumber">S2 - E1</td>
+                    </tr>
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-episodenumber">S2 - E1</td>
+                    </tr>
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-episodenumber">S2 - E1</td>
+                    </tr>
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-episodenumber">S2 - E1</td>
+                    </tr>
+                </table>
+                <a href="#0" class="episode-list-goto-link">Go to your episode guide</a>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-lg-4 trending-background-color">
+            <div class="episode-list">
+                <h2>Your episodes airing soon</h2>
+                <table class="episode-list-compact">
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-date">Thursday</td>
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-episodenumber">S2 - E1</td>
+                    </tr>
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-date">Thursday</td>
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-episodenumber">S2 - E1</td>
+                    </tr>
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-date">Thursday</td>
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-episodenumber">S2 - E1</td>
+                    </tr>
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-date">Thursday</td>
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-episodenumber">S2 - E1</td>
+                    </tr>
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-date">Thursday</td>
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-episodenumber">S2 - E1</td>
+                    </tr>
+                </table>
+                <a href="#0" class="episode-list-goto-link">Go to your shows overview</a>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-lg-4 trending-background-color">
+            <div class="episode-list">
+                <h2>Best tv shows of 2016</h2>
+                <table class="episode-list-compact">
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-rating">9.3</td>
+                    </tr>
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-rating">9.3</td>
+                    </tr>
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-rating">9.3</td>
+                    </tr>
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-rating">9.3</td>
+                    </tr>
+                    <tr class="episode-list-compact-item">
+                        <td class="episode-list-compact-item-name">Series name</td>
+                        <td class="episode-list-compact-item-rating">9.3</td>
+                    </tr>
+                </table>
+                <a class="episode-list-goto-link" href="#0">Browse all shows</a>
+            </div>
+        </div>
+    </div>
+
 </div>
 
-
-<!--<div class="container">-->
-    <!--<div class="row">-->
-        <!--&lt;!&ndash; Trending Series &ndash;&gt;-->
-        <!--<div class="col-md-12 col-lg-12 trending-background-color">-->
-            <!--<h1>Trending series</h1>-->
-            <!--<ul class="splash-posters">-->
-                <!--<li class="series" *ngFor="let series of trendingSeries">-->
-                    <!--<a [routerLink]="['/series', series.unique_name]">-->
-
-                        <!--<img class="img-responsive poster"-->
-                             <!--src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"-->
-                             <!--alt="{{ series.name }}"/>-->
-                    <!--</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
-
-    <!--</div>-->
-<!--</div>-->
-
-<!--<div class="container">-->
-
-    <!--<div class="row">-->
-        <!--&lt;!&ndash; Most followed in last 15 days &ndash;&gt;-->
-        <!--<div class="col-md-6 col-lg-6 trending-background-color">-->
-            <!--<h1>New and popular</h1>-->
-            <!--<ul class="splash-posters">-->
-                <!--<li class="series" *ngFor="let series of topSeries">-->
-                    <!--<a href="/series/{{ series.unique_name }}">-->
-                        <!--<img class="img-responsive poster"-->
-                             <!--src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"-->
-                             <!--alt="{{ series.name }}"/>-->
-                    <!--</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
-
-        <!--<div class="col-md-6 col-lg-6 trending-background-color ">-->
-            <!--<h1>Browse all series</h1>-->
-            <!--<ul>-->
-                <!--<li class="genre" *ngFor="let genre of seriesGenres">-->
-                    <!--<a href="/series/genre/{{genre.genre | lowercase }}">{{ genre.genre }}</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
-
-
-    <!--</div>-->
-
-<!--</div>-->
 
