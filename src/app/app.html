@@ -1,2 +1,6 @@
-<as-navbar [brand]="appBrand"></as-navbar>
-<router-outlet></router-outlet>
+<div id="contentUI" ui-view class="ea-content">
+    <as-navbar [brand]="appBrand"></as-navbar>
+    <router-outlet></router-outlet>
+</div>
+
+<as-footer></as-footer>

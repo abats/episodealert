@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { APP_PROVIDERS } from './app.providers';
 import { AppComponent } from './app.component';
 import { appRoutingProviders, routing } from './app.routing';
-import { NavbarModule } from './shared';
+import { NavbarModule, FooterModule } from './shared';
 import { HomeModule } from './home/home.module';
 import { GuideModule } from './guide/guide.module';
 import { MyshowsModule } from './myshows/myshows.module';
@@ -16,6 +16,7 @@ import { SeriesDetailModule } from './series/series-detail/series-detail.module'
     ],
     imports: [
         NavbarModule,
+        FooterModule,
         HomeModule,
         GuideModule,
         MyshowsModule,
