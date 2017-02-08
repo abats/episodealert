@@ -1,4 +1,7 @@
 var envConfig = require('./utils/env');
+var url = require('url');
+var proxy = require('proxy-middleware');
+
 
 module.exports = function () {
     var root = '',
@@ -86,12 +89,16 @@ module.exports = function () {
     if (envConfig.ENV === envConfig.ENVS.DEV)
     {
         var historyApiFallback = require('connect-history-api-fallback');
+
+        var proxyOptions = url.parse('http://localhost:8000/api');
+        proxyOptions.route = '/api';
+
         var browserSync = {
             dev: {
                 port: 3000,
                 server: {
                     baseDir: './src/',
-                    middleware: [historyApiFallback()],
+                    middleware: [proxy(proxyOptions), historyApiFallback()],
                     routes: {
                         "/node_modules": "node_modules",
                         "/src": "src"

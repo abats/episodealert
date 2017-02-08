@@ -88,7 +88,7 @@ function compileTs(files, watchMode) {
         }))
         .pipe(tslint.report())
         .pipe(sourcemaps.init())
-        .pipe(ts(tsProject))
+        .pipe(tsProject())
         .on('error', function () {
             if (watchMode) {
                 return;

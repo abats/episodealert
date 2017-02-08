@@ -1,5 +1,7 @@
 var envConfig = require('../utils/env');
-nodemon = require('gulp-nodemon')
+nodemon = require('gulp-nodemon');
+var url = require('url');
+var proxy = require('proxy-middleware');
 
 if (envConfig.ENV === envConfig.ENVS.DEV)
 {
@@ -9,6 +11,8 @@ if (envConfig.ENV === envConfig.ENVS.DEV)
 
     function startBrowsersync (config)
     {
+
+
         bsIns = bs.create();
         bsIns.init(config);
         bsIns.reload();
