@@ -13,9 +13,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class MyshowsComponent implements OnInit {
 
-    trendingSeries: Series[];
-    topSeries: Series[];
-    seriesGenres: any;
+    profileSeries: Series [];
 
     constructor( private seriesService: SeriesService,
                  private authService: AuthService,
@@ -24,30 +22,16 @@ export class MyshowsComponent implements OnInit {
         titleService.setTitle('Episode Alert - Guide');
     }
 
-    getTrendingSeries() {
-        this.seriesService.getTrendingSeries().then(
+    getProfileSeries() {
+        this.seriesService.getProfileSeries().then(
             (series) => {
-                this.trendingSeries = series;
+                this.profileSeries = series;
             }
         );
-    }
-
-    getTopSeries() {
-        this.seriesService.getTopSeries().then(
-            (series) => {
-                this.topSeries = series;
-            }
-        );
-    }
-
-    getSeriesGenres() {
-        this.seriesGenres = this.seriesService.getSeriesGenres();
     }
 
     ngOnInit() {
-        this.getTrendingSeries();
-        this.getTopSeries();
-        this.getSeriesGenres();
+        this.getProfileSeries();
 
         console.log(this.authService.isLoggedIn());
 
