@@ -9,6 +9,7 @@ import { MyshowsModule } from './myshows/myshows.module';
 import { TodolistModule } from './todolist/todolist.module';
 import { HttpModule } from '@angular/http';
 import { SeriesDetailModule } from './series/series-detail/series-detail.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { SeriesDetailModule } from './series/series-detail/series-detail.module'
         MyshowsModule,
         TodolistModule,
         SeriesDetailModule,
+        UserModule,
         routing
     ],
     providers: [
