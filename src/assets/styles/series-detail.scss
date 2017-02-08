@@ -1,0 +1,15 @@
+.episode-table{
+  margin-top: 20px;
+  line-height: 30px;
+  table-layout: fixed;
+  width: 100%;
+
+  .episode-table-number{
+    padding-left: 15px;
+    width: 5%;
+  }
+
+  .episode-table-description{
+    width: 70%;
+  }
+}

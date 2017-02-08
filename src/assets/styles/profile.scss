@@ -1,0 +1,25 @@
+.profile-series{
+
+
+  text-align: left;
+  margin: auto;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  li{
+    width: 15%;
+    display: inline-block;
+    padding-bottom: 20px;
+  }
+
+  a{
+    display: block;
+  }
+
+  span{
+    display: block;
+  }
+}

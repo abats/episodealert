@@ -15,15 +15,38 @@ export class SeriesService {
     private spotlightSeriesUrl: string;
     private trendingSeriesUrl: string;
     private profileUrl: string;
+    private followUrl: string;
+    private unfollowUrl: string;
 
     constructor( private http: Http ) {
         this.baseUrl = CONSTANTS.MAIN.APP.API_BASE_URL;
         this.topSeriesUrl = this.baseUrl + 'series/top';
         this.trendingSeriesUrl = this.baseUrl + 'series/trending';
-        this.spotlightSeriesUrl = this.baseUrl + 'series/spotlight';
+        // TODO: Change when we have spotlight
+        this.spotlightSeriesUrl = this.baseUrl + 'series/top';
         this.profileUrl = this.baseUrl + 'profile/following';
         this.singleSeriesUrl = this.baseUrl + 'series/';
         this.singleSeasonUrl = this.baseUrl + 'series/episodesbyseason/';
+        this.followUrl = this.baseUrl + 'follow/';
+        this.unfollowUrl = this.baseUrl + 'unfollow/';
+    }
+
+    /*
+     * Following
+     */
+
+    followSeries(seriesId) {
+        return this.http.get(this.followUrl + seriesId)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+
+    unfollowSeries(seriesId) {
+        return this.http.get(this.unfollowUrl + seriesId)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
     }
 
     getSingleSeries(uniqueName): Promise<Series> {
@@ -69,46 +92,11 @@ export class SeriesService {
             .catch(this.handleError);
     }
 
-    save(hero: Series): Promise<Series>  {
-        if (hero.id) {
-            return this.put(hero);
-        }
-        return this.post(hero);
-    }
-
-    delete(hero: Series) {
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
-        let url = `${this.singleSeriesUrl}/${hero.id}`;
-
-        return this.http
-            .delete(url, headers)
+    /* TODO: move to profile service */
+    getProfileSeries(): Promise<Series[]> {
+        return this.http.get(this.profileUrl)
             .toPromise()
-            .catch(this.handleError);
-    }
-
-    private put(hero: Series) {
-        let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-
-        let url = `${this.singleSeriesUrl}/${hero.id}`;
-
-        return this.http
-            .put(url, JSON.stringify(hero), {headers: headers})
-            .toPromise()
-            .then(() => hero)
-            .catch(this.handleError);
-    }
-
-    private post(hero: Series): Promise<Series> {
-        let headers = new Headers({
-            'Content-Type': 'application/json'});
-
-        return this.http
-            .post(this.singleSeriesUrl, JSON.stringify(hero), {headers: headers})
-            .toPromise()
-            .then(res => res.json().data)
+            .then(response => response.json())
             .catch(this.handleError);
     }
 

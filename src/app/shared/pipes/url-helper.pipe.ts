@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { CONSTANTS } from '../constant/index';
 
 @Pipe({
     name: 'asUrlPipe',
@@ -8,8 +9,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class UrlPipe implements PipeTransform {
     private imageUrl: string = 'assets/img/missing.png';
     private returnPoster: any = '';
+    private baseUrl: string;
 
-    // constructor() { }
+    constructor() {
+        this.baseUrl = CONSTANTS.MAIN.APP.IMG_BASE_URL;
+    }
 
     transform(poster: string, unique_name: string, size: string) {
 
@@ -17,9 +21,9 @@ export class UrlPipe implements PipeTransform {
             if (size) {
                 this.returnPoster = poster.split('.');
                 this.returnPoster = this.returnPoster[0] + '_' + size + '.jpg';
-                this.imageUrl = 'assets/img/poster/' + unique_name.substring(0, 2) + '/' + this.returnPoster;
+                this.imageUrl = this.baseUrl + 'poster/' + unique_name.substring(0, 2) + '/' + this.returnPoster;
             } else {
-                this.imageUrl = 'assets/img/poster/' + unique_name.substring(0, 2) + '/' + poster;
+                this.imageUrl = this.baseUrl + 'poster/' + unique_name.substring(0, 2) + '/' + poster;
             }
         }
 

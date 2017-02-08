@@ -10,10 +10,12 @@ export class AuthService {
     private testValue: string;
     private baseUrl: string;
     private authCheckUrl: string;
+    private loginUrl: string;
 
     constructor( private http: Http) {
         this.baseUrl = CONSTANTS.MAIN.APP.API_BASE_URL;
-        this.authCheckUrl = this.baseUrl + '/auth/check';
+        this.authCheckUrl = this.baseUrl + 'auth/check';
+        this.loginUrl = this.baseUrl + 'auth/login';
         this.user = new User;
     }
 
@@ -37,6 +39,15 @@ export class AuthService {
         this.user.name = response.accountname;
         console.log(this.user);
         localStorage.setItem('authenticated', 'true');
+    }
+
+    loginUser(userCredentials): Promise <any> {
+        return this.http.post(this.loginUrl, userCredentials)
+            .toPromise()
+            .then(response => {
+                this.login (response.json());
+            })
+            .catch(this.handleError);
     }
 
     getAuth(): Promise<void> {

@@ -524,6 +524,7 @@ li.disabled{
   }
 
   .ea-btn--follow, .ea-btn--archive {
+    padding: 0px 10px 0px 0px;
     top: -3px;
     position: relative;
     line-height: 120%;
@@ -572,14 +573,15 @@ li.disabled{
     .active > a {
       color: #FFF;
       border: none;
-      background-color: #252525;
+      background-color: #1a1a1a;
     }
 
-    .active > a:hover {
+    .active > a:hover,
+    .active > a:focus{
       color: #FFF;
       border: none;
       cursor: pointer;
-      background-color: #252525;
+      background-color: #1a1a1a;
     }
   }
 }
