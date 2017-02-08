@@ -16,3 +16,5 @@ src/app/shared/constant/env.ts
 src/app/shared/constant/env.ts
 
 .vscode/settings.json
+
+*.lock
