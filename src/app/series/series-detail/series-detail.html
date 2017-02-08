@@ -40,9 +40,12 @@
                          [removable]="tab.removable"
                          (removed)="removeTabHandler(tab)">
 
-                        <table>
+                        <table class="episode-table">
                             <tr *ngFor="let episode of tab?.content">
-                                <td>{{ episode.name }}</td>
+                                <td class="episode-table-number">{{ episode.episode }}</td>
+                                <td class="episode-table-description">{{ episode.name }}</td>
+                                <td>{{ episode.airdate }}</td>
+                                <td><as-seen [episode]="episode"></as-seen></td>
                             </tr>
                         </table>
                     </tab>

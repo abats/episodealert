@@ -4,7 +4,8 @@ import { SharedModule } from '../shared/shared.module';
 import { SeriesService } from '../shared/services/series.service';
 import { HttpModule } from '@angular/http';
 import { AuthService } from '../shared/services/authentication.service';
-import { Title } from '@angular/platform-browser';
+import { Title, BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -15,7 +16,9 @@ import { Title } from '@angular/platform-browser';
         MyshowsComponent
     ],
     imports: [
+        RouterModule,
         SharedModule,
+        BrowserModule,
         HttpModule
     ],
     providers: [

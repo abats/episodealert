@@ -5,13 +5,15 @@ import { GuideRoutes } from './guide/index';
 import { TodolistRoutes } from './todolist/index';
 import { SeriesDetailRoutes } from './series/series-detail/series-detail.routes';
 import { MyshowsRoutes } from './myshows/myshows.routes';
+import { UserRoutes } from './user/user.routes';
 
 const appRoutes: Routes = [
     ...HomeRoutes,
     ...GuideRoutes,
     ...MyshowsRoutes,
     ...TodolistRoutes,
-    ...SeriesDetailRoutes
+    ...SeriesDetailRoutes,
+    ...UserRoutes
 ];
 
 export const appRoutingProviders: any[] = [

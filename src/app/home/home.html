@@ -38,8 +38,8 @@
             <div class="col-md-12 col-lg-12">
 
                 <ul class="home-banners">
-                    <li *ngFor="let series of spotlightSeries" class="spotlight">
-                        <a [routerLink]="['/series', series.unique_name]">
+                    <li *ngFor="let series of spotlightSeries; let i=index" class="spotlight">
+                        <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 2">
                             <div class="gradient-effect">
                                 <img class="img-responsive"
                                  src="{{ series.unique_name | asFanartPipe : series.fanart_image }}"
@@ -52,7 +52,8 @@
 
                             <h3>{{ series.name }} <span class="season"> season {{ series.season_amount }} </span></h3>
                         </a>
-                        <button class="ea-btn ea-btn--follow notfollowing spotlight-button-location"><i class="fa fa-angle-right" aria-hidden="true" style="padding: 0px 10px 0px 0px"></i>Follow</button>
+                        <as-follow class="spotlight-button-location" [series]="series" *ngIf="i < 2"></as-follow>
+
                     </li>
                 </ul>
 
@@ -81,7 +82,7 @@
                         </span>
                     </a>
 
-                    <span class="season">
+                    <span class="season" *ngIf="i < 3">
                         Season {{ series.season_amount }}
                     </span>
 
@@ -102,7 +103,7 @@
                         <span class="title">
                             {{ series.name }}
                         </span>
-                        <span class="season">
+                        <span class="season" *ngIf="i < 3">
                             Season {{ series.season_amount }}
                         </span>
                     </a>

@@ -1,8 +1,40 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-12 col-lg-12">
-            <h4>Welcome to myshows!</h4>
+        <!-- Trending Series -->
+        <div class="col-md-12 col-lg-12 trending-background-color">
+
+            <h2>Profile Series</h2>
+
+            <ul class="profile-series">
+                <li class="series" *ngFor="let series of profileSeries; let i=index">
+
+                    <div class="series-img">
+
+                        <a [routerLink]="['/series', series.unique_name]">
+                            <img class="img-responsive"
+                                 src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
+                                 alt="{{ series.name }}"/>
+                        </a>
+
+                    </div>
+
+                    <div class="series-info">
+
+                        <a [routerLink]="['/series', series.unique_name]">
+                            <span class="title">
+                                {{ series.name }}
+                            </span>
+                        </a>
+
+                        <span class="season">
+                            Season {{ series.season_amount }}
+                        </span>
+
+                    </div>
+
+                </li>
+            </ul>
         </div>
+
     </div>
 </div>
-

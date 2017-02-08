@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SeriesService } from '../shared/services/series.service';
 import { Series } from '../shared/model/series';
-import { AuthService } from '../shared/services/authentication.service';
 import { Title } from '@angular/platform-browser';
+import { AuthService } from '../shared/services/authentication.service';
 
 @Component({
     selector: 'as-home',
