@@ -1,0 +1,28 @@
+{
+  "/api/": "/",
+
+  "/series/top" : "/top",
+
+  "/profile/following": "/following",
+  "/profile/stats": "/stats",
+
+
+  "/series/trending" : "/top",
+
+  "/series/guide/3" : "/guide3",
+  "/series/guide/7" : "/guide7",
+  "/series/guide/14" : "/guide14",
+  "/series/guide/21" : "/guide21",
+
+  "/series/breaking_bad" : "/breaking_bad",
+
+  "/series/episodesbyseason/81189/0" : "/breaking_bad_season_0",
+  "/series/episodesbyseason/81189/1" : "/breaking_bad_season_1",
+  "/series/episodesbyseason/81189/2" : "/breaking_bad_season_2",
+  "/series/episodesbyseason/81189/3" : "/breaking_bad_season_3",
+  "/series/episodesbyseason/81189/4" : "/breaking_bad_season_4",
+  "/series/episodesbyseason/81189/5" : "/breaking_bad_season_5"
+
+}
+
+
