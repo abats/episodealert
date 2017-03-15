@@ -482,7 +482,7 @@ li.disabled{
   }
 
   .info-text-top {
-    padding: 3px 30px 30px 30px;
+    padding: 3px 0px 30px 0px;
     @media(max-width: $screen-xs-max){ padding: 5px 0px 5px 20px; }
 
     // HiDPI screens
@@ -491,7 +491,7 @@ li.disabled{
     only screen and (min--moz-device-pixel-ratio: 2) {
 
       margin-top: -10px;
-      padding: 0px 10px 20px 30px;
+      padding: 20px 0px 30px 0px;
     }
 
   }
@@ -506,6 +506,7 @@ li.disabled{
     //TODO move to vars
     font-family: $font-header;
     font-weight: 600;
+    border: none;
   }
 
   li {
@@ -523,8 +524,8 @@ li.disabled{
     text-shadow: 1px 1px $lighter-text-shadow;
   }
 
+  // button position on detail page
   .ea-btn--follow, .ea-btn--archive {
-    padding: 0px 10px 0px 0px;
     top: -3px;
     position: relative;
     line-height: 120%;

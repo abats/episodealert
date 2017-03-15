@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Series } from '../model/series';
 import { SeriesService } from '../services/series.service';
 
@@ -8,46 +8,28 @@ import { SeriesService } from '../services/series.service';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class FollowbuttonComponent implements OnInit {
+export class FollowbuttonComponent {
     @Input() series: Series;
-    public buttonLabel: string;
-    public followingText: string;
-    public notfollowingText: string;
+    @Input() buttonLabel: string;
 
     constructor( private seriesService: SeriesService ) {
-        this.followingText = 'Unfollow';
-        this.notfollowingText = 'Following';
     }
 
-    ngOnInit() {
-        this.updateButtonLabel();
-    }
 
     toggle() {
-        this.series.following = !this.series.following;
-
         if (this.series.following) {
             this.seriesService.unfollowSeries(this.series.id).then(
                 (response) => {
-                    this.updateButtonLabel();
+                    this.series.following = !this.series.following;
                 }
             );
         }else {
             this.seriesService.followSeries(this.series.id).then(
                 (response) => {
-                    this.updateButtonLabel();
+                    this.series.following = !this.series.following;
                 }
             );
         }
 
     }
-
-    updateButtonLabel() {
-        if (this.series.following) {
-            this.buttonLabel = this.followingText;
-        }else {
-            this.buttonLabel = this.notfollowingText;
-        }
-    }
-
 }

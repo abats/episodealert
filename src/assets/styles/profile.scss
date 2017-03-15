@@ -10,6 +10,7 @@
   justify-content: space-between;
 
   li{
+    position: relative;
     width: 15%;
     display: inline-block;
     padding-bottom: 20px;
@@ -21,5 +22,11 @@
 
   span{
     display: block;
+  }
+
+  .badge{
+    right: 10%;
+    top: 58%;
+    position: absolute;
   }
 }

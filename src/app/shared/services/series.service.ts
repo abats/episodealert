@@ -17,6 +17,8 @@ export class SeriesService {
     private profileUrl: string;
     private followUrl: string;
     private unfollowUrl: string;
+    private seenUrl: string;
+    private unseenUrl: string;
 
     constructor( private http: Http ) {
         this.baseUrl = CONSTANTS.MAIN.APP.API_BASE_URL;
@@ -29,6 +31,8 @@ export class SeriesService {
         this.singleSeasonUrl = this.baseUrl + 'series/episodesbyseason/';
         this.followUrl = this.baseUrl + 'follow/';
         this.unfollowUrl = this.baseUrl + 'unfollow/';
+        this.unseenUrl = this.baseUrl + 'series/unseen/';
+        this.seenUrl = this.baseUrl + 'series/seen/';
     }
 
     /*
@@ -44,6 +48,24 @@ export class SeriesService {
 
     unfollowSeries(seriesId) {
         return this.http.get(this.unfollowUrl + seriesId)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+
+    /*
+     *  Seen for single
+     */
+
+    seenEpisode(episodeId, mode) {
+        return this.http.post(this.seenUrl + episodeId, {'mode' : mode})
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+
+    unseeEpisode(episodeId, mode) {
+        return this.http.post(this.unseenUrl + episodeId, {'mode' : mode})
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);

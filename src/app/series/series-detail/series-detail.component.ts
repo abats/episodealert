@@ -22,8 +22,24 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
 
     createSeriesSeasonTabs(seasonAmount) {
-        for (let i = 0; i < seasonAmount; i++) {
-            this.tabs.push( {title: 'Season ' +  i , content: []} );
+
+        // don't judge me for this code
+
+        if( this.series.has_specials ) {
+            for (let i = 0; i < seasonAmount; i++) {
+                console.log('add a tab');
+
+                if (this.series.has_specials && i === 0) {
+                    this.tabs.push( {title: 'Specials', content: [] });
+                }else {
+                    this.tabs.push( {title: 'Season ' +  i , content: []} );
+                }
+            }
+        }else{
+            for (let i = 0; i < seasonAmount; i++) {
+                this.tabs.push( {title: 'Season ' +  (i + 1)  , content: []} );
+            }
+
         }
 
         console.log(this.tabs);
@@ -50,8 +66,9 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
                 this.series = series;
                 console.log(series);
                 this.createSeriesSeasonTabs(series.season_amount);
-                this.getSeriesSeason(series.id, 1);
-                this.setActiveTab(series.season_amount - 1);
+                this.getSeriesSeason(series.id, series.season_amount - 1 );
+
+                // this.setActiveTab(series.season_amount - 1);
             }
         );
     }
@@ -59,13 +76,23 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
     getSeriesSeason(seriesId: number, seasonNumber: number) {
         this.seriesService.getSeriesSeason(seriesId, seasonNumber).then(
             (season) => {
-                this.tabs[seasonNumber - 1].content = season;
+                if(this.series.has_specials){
+                    this.tabs[seasonNumber].content = season;
+                }else{
+                    this.tabs[seasonNumber - 1].content = season;
+                }
+
             }
         );
     }
 
     public loadTab(tab): void {
-        this.getSeriesSeason(this.series.id, tab + 1);
+        if (this.series.has_specials){
+            this.getSeriesSeason(this.series.id, tab);
+        }else{
+            this.getSeriesSeason(this.series.id, tab + 1);
+        }
+
     }
 
     public setActiveTab(index: number): void {

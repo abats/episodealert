@@ -90,7 +90,7 @@ module.exports = function () {
     {
         var historyApiFallback = require('connect-history-api-fallback');
 
-        var proxyOptions = url.parse('http://localhost:8000/api');
+        var proxyOptions = url.parse('http://localhost:8888/api');
         proxyOptions.route = '/api';
 
         var browserSync = {

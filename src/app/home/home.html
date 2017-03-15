@@ -52,7 +52,7 @@
 
                             <h3>{{ series.name }} <span class="season"> season {{ series.season_amount }} </span></h3>
                         </a>
-                        <as-follow class="spotlight-button-location" [series]="series" *ngIf="i < 2"></as-follow>
+                        <as-follow class="spotlight-button-location" [series]="series" *ngIf="i < 2" [buttonLabel]="series.following ? 'Unfollow' : 'Follow'"></as-follow>
 
                     </li>
                 </ul>

@@ -3,9 +3,7 @@
     <div class="series-detail" *ngIf="series">
         <div class="row info-text-top">
             <h1>{{ series.name }}</h1>
-
-            <!--<follow-button series="series"></follow-button>-->
-            <!--<archive-button series="series"></archive-button>-->
+            <as-follow class="spotlight-button-location" [series]="series" [buttonLabel]="series.following ? 'Unfollow' : 'Follow'"></as-follow>
 
             <p class="hidden-xs hidden-xm">{{ series.description }}</p>
         </div>
@@ -45,7 +43,7 @@
                                 <td class="episode-table-number">{{ episode.episode }}</td>
                                 <td class="episode-table-description">{{ episode.name }}</td>
                                 <td>{{ episode.airdate }}</td>
-                                <td><as-seen [episode]="episode"></as-seen></td>
+                                <td><as-seen [episode]="episode" [buttonLabel]="episode.seen ? 'Unsee' : 'Seen'"></as-seen></td>
                             </tr>
                         </table>
                     </tab>

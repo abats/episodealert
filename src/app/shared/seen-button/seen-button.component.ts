@@ -1,5 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, OnInit } from '@angular/core';
-import { Series } from '../model/series';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { SeriesService } from '../services/series.service';
 
 @Component({
@@ -8,34 +7,27 @@ import { SeriesService } from '../services/series.service';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class SeenbuttonComponent implements OnInit {
+export class SeenbuttonComponent {
     @Input() episode: any;
-    public buttonLabel: string;
-    public seenText: string;
-    public notseenText: string;
+    @Input() buttonLabel: string;
 
     constructor( private seriesService: SeriesService ) {
-        this.seenText = 'Unsee';
-        this.notseenText = 'Seen';
-    }
-
-    ngOnInit() {
-        this.updateButtonLabel();
-
-        console.log(this.episode);
     }
 
     toggle() {
-        this.episode.seen = !this.episode.seen;
-        this.updateButtonLabel();
-    }
-
-    updateButtonLabel() {
         if (this.episode.seen) {
-            this.buttonLabel = this.seenText;
+            this.seriesService.unseeEpisode(this.episode.id, 'until').then(
+                (response) => {
+                    this.episode.seen = !this.episode.seen;
+                }
+            );
         }else {
-            this.buttonLabel = this.notseenText;
+            this.seriesService.seenEpisode(this.episode.id, 'until').then(
+                (response) => {
+                    this.episode.seen = !this.episode.seen;
+                }
+            );
         }
-    }
 
+    }
 }
