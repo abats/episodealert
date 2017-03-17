@@ -6,6 +6,7 @@
   "/profile/following": "/following",
   "/profile/stats": "/stats",
 
+  "/auth/check" : "/check",
 
   "/series/trending" : "/top",
 
@@ -15,13 +16,28 @@
   "/series/guide/21" : "/guide21",
 
   "/series/breaking_bad" : "/breaking_bad",
+  "/series/orange_is_the_new_black" : "/orange_is_the_new_black",
+  "/series/american_horror_story" : "/american_horror_story",
+
+  "/series/episodesbyseason/264586/1" : "/orange_is_the_new_black_1",
+  "/series/episodesbyseason/264586/2" : "/orange_is_the_new_black_2",
+  "/series/episodesbyseason/264586/3" : "/orange_is_the_new_black_3",
+  "/series/episodesbyseason/264586/4" : "/orange_is_the_new_black_4",
+  "/series/episodesbyseason/264586/5" : "/orange_is_the_new_black_5",
 
   "/series/episodesbyseason/81189/0" : "/breaking_bad_season_0",
   "/series/episodesbyseason/81189/1" : "/breaking_bad_season_1",
   "/series/episodesbyseason/81189/2" : "/breaking_bad_season_2",
   "/series/episodesbyseason/81189/3" : "/breaking_bad_season_3",
   "/series/episodesbyseason/81189/4" : "/breaking_bad_season_4",
-  "/series/episodesbyseason/81189/5" : "/breaking_bad_season_5"
+  "/series/episodesbyseason/81189/5" : "/breaking_bad_season_5",
+
+  "/series/episodesbyseason/250487/1" : "/american_horror_story_season_1",
+  "/series/episodesbyseason/250487/2" : "/american_horror_story_season_2",
+  "/series/episodesbyseason/250487/3" : "/american_horror_story_season_3",
+  "/series/episodesbyseason/250487/4" : "/american_horror_story_season_4",
+  "/series/episodesbyseason/250487/5" : "/american_horror_story_season_5",
+  "/series/episodesbyseason/250487/6" : "/american_horror_story_season_6"
 
 }
 
