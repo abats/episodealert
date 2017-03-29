@@ -16,7 +16,7 @@
         <div class="input-group" >
           <input type="text" class="form-control form-control-search" placeholder="Search"/>
           <span class="input-group-btn">
-            <button type="submit" class="btn btn-default" ><span class="fa fa-search"></span></button>
+            <button type="submit" class="btn btn-default btn-search" ><span class="fa fa-search"></span></button>
           </span>
         </div>
       </form>
@@ -24,8 +24,27 @@
         <li><a [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">HOME</a></li>
         <li><a [routerLink]="['/guide']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">GUIDE</a></li>
         <li><a [routerLink]="['/myshows']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">MY SHOWS</a></li>
-        <li *ngIf="authService.isLoggedIn()" class="hidden-xs hidden-sm" ><a [routerLink]="['/profile']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }" class="navbar-link"> TestUser{{ authService.user.name }}</a></li>
+
+        <li *ngIf="authService.isLoggedIn()" class="hidden-xs hidden-sm" >
+
+          <div class="dropdown user-dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              USERNAME
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="#">Profile</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Settings</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Logout</a></li>
+
+            </ul>
+          </div>
+        </li>
+
       </ul>
+
 
     </div>
   </div>

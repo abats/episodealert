@@ -3,6 +3,7 @@ $colors: (
     primary: cornflowerblue
 );
 
+$light-blue: #14b6cc;
 $light-text: #C9C9C9;
 $bright-highlight : #00ff90;
 $dark-color: #212a3f;
@@ -20,3 +21,10 @@ $font-header: 'Raleway', sans-serif;
 $hidpi-screen : "only screen and (-webkit-min-device-pixel-ratio : 2),
 				 only screen and (min-device-pixel-ratio : 2),
            		 only screen and (min--moz-device-pixel-ratio: 2)";
+
+
+// Dropdown vars bootstrap
+$dropdown-bg: $light-text;
+$dropdown-link-hover-color: #fff;
+$border-radius-base: 0;
+$dropdown-divider-bg: $primary-color;

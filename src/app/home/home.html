@@ -1,6 +1,7 @@
 <div *ngIf="!authService.isLoggedIn()" class="row splash-brand">
     <p>episode alert <img src="img/logo-71x50.png" alt="Episode Alert"/></p>
 </div>
+
 <div *ngIf="!authService.isLoggedIn()" class="marketing">
     <div class="col-xs-4 col-md-4">
         <h1>Follow</h1>
@@ -16,7 +17,20 @@
     </div>
 </div>
 
-<as-userstats></as-userstats>
+<!-- <as-welcomemessage *ngIf="!authService.isLoggedIn()"></as-welcomemessage> -->
+
+<div class="container" *ngIf="!authService.isLoggedIn()">
+    <div class="row">
+        <div class="col-md-12 col-lg-12" >
+            <p class="user-greeting">
+                <a href="signup">Clik here to sign-up</a> and start following your favorite TV shows and always be up to date on the latest episodes with e-mail notifications.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<as-userstats *ngIf="authService.isLoggedIn()"></as-userstats>
 
 <div class="row-ea">
     <div class="container">
@@ -40,8 +54,8 @@
                                 <span class="rating">{{ series.rating }}</span>
                                 <span class="rating-source">users</span>
                             </span>
-
-                            <h3>{{ series.name }} <span class="season"> season {{ series.season_amount }} </span></h3>
+                            <span class="home-banners-season"> Season {{ series.season_amount }} </span>
+                            <h3 class="title">{{ series.name }} </h3>
                         </a>
                         <as-follow class="spotlight-button-location" [series]="series" *ngIf="i < 2" [buttonLabel]="series.following ? 'Unfollow' : 'Follow'"></as-follow>
 
@@ -57,7 +71,7 @@
     <div class="row">
         <!-- Trending Series -->
         <div class="col-md-6 col-lg-6 trending-background-color">
-            <h2>Coming soon</h2>
+            <h2>Most new followers last 30 days</h2>
             <ul class="splash-posters">
                 <li class="series" *ngFor="let series of trendingSeries; let i=index">
 
@@ -83,7 +97,7 @@
 
         <!-- Trending Series -->
         <div class="col-md-6 col-lg-6 trending-background-color">
-            <h2>Most new followers in 2016</h2>
+            <h2>Editors' picks</h2>
             <ul class="splash-posters">
                 <li class="series" *ngFor="let series of trendingSeries; let i = index">
                     <a [routerLink]="['/series', series.unique_name]" *ngIf="i < 3">
@@ -104,6 +118,7 @@
 
     </div>
 
+    <!--
     <div class="row">
 
         <div class="col-md-4 col-lg-4 trending-background-color">
@@ -198,7 +213,7 @@
             </div>
         </div>
     </div>
-
+    -->
 </div>
 
 

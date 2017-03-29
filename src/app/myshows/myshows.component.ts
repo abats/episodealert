@@ -14,12 +14,14 @@ import { Title } from '@angular/platform-browser';
 export class MyshowsComponent implements OnInit {
 
     profileSeries: Series [];
+    profileSeriesView: String;
 
     constructor( private seriesService: SeriesService,
                  private authService: AuthService,
                  private titleService: Title) {
 
         titleService.setTitle('Episode Alert - Guide');
+
     }
 
     getProfileSeries() {
@@ -30,7 +32,17 @@ export class MyshowsComponent implements OnInit {
         );
     }
 
+    toggleSeriesView(){
+        if(this.profileSeriesView === 'poster'){
+            this.profileSeriesView = 'list';
+        }else{
+            this.profileSeriesView = 'poster';
+        }
+    }
+
     ngOnInit() {
+        // @Todo implement view
+        this.profileSeriesView = 'poster';
         this.getProfileSeries();
 
         console.log(this.authService.isLoggedIn());

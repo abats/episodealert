@@ -23,6 +23,36 @@ body {
   padding: 30px 0px 30px 0px;
 }
 
+
+.dropdown-menu{
+  min-width: 50px;
+}
+
+.user-dropdown,
+.btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle{
+  button,
+  button:active,
+  button:hover
+  {
+    background-color: $primary-lighter !important;
+    color: $light-text !important;
+    border: none;
+  }
+
+li{
+  display: block;
+
+  a:hover{
+    background-color: #ccc !important;
+  }
+}
+
+.divider{
+  margin: 5px 20px 5px 20px;
+}
+
+}
+
 #masterUI{
   //Flexbox
   display: flex;
@@ -34,26 +64,26 @@ body {
 h1 {
   @media(max-width: $screen-xs-max){ padding-bottom: 10px; }
 
-  border-bottom: 1px solid #252525;
+  border-bottom: 1px solid darken(#C9C9C9, 50%);
   padding-top:0px;
   padding-bottom: 12px;
   margin-bottom: 15px;
   font-size: 20px;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
-  color: #14b6cc;
+  color: #C9C9C9;
   letter-spacing: 0.06em;
 }
 
 h2 {
   @media(max-width: $screen-xs-max){ padding-bottom: 10px; }
-  border-bottom: 1px solid #252525;
+  border-bottom: 1px solid darken(#C9C9C9, 50%);
   padding-bottom: 12px;
   margin-bottom: 15px;
   font-size: 18px;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
-  color: #14b6cc;
+  color: #C9C9C9;
   letter-spacing: 0.06em;
 }
 
@@ -207,7 +237,7 @@ ul {
 .container--navbar {
   font-family: $font-header;
   font-weight: 100;
-  background-color: $primary-color;
+  background-color: $primary-lighter;
   letter-spacing: 0.08em;
 
   .navbar-brand{
@@ -455,7 +485,7 @@ li.disabled{
   box-shadow: none;
 }
 
-.btn {
+.btn-search {
     height: 41px;
     margin-top: -2px;
     padding: 0px 15px 0px 15px;
@@ -603,4 +633,10 @@ li.disabled{
   dl {
     margin-bottom: 0px;
   }
+}
+
+.ea-facebook{
+  font-size: 160%;
+  color: #FFFFFF;
+  vertical-align: middle;
 }

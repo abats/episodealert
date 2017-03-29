@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { SeriesService } from '../../shared/services/series.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'as-userstats',
@@ -10,23 +8,23 @@ import { ActivatedRoute } from '@angular/router';
 
 export class UserStatsComponent implements OnInit {
 
+    profileStats: any;
+
     constructor(
-            private titleService: Title,
-            private activatedRoute: ActivatedRoute,
             private seriesService: SeriesService
         ) {
-
-        titleService.setTitle('Episode Alert - Series detail');
-
     }
 
     getStats() {
-       //  get them stats
+        this.seriesService.getProfileStats().then(
+            (stats) => {
+                this.profileStats = stats;
+            }
+        );
     }
 
     ngOnInit() {
         this.getStats();
-        console.log('init');
     }
 
 }

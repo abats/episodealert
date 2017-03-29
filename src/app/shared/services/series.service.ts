@@ -15,6 +15,7 @@ export class SeriesService {
     private spotlightSeriesUrl: string;
     private trendingSeriesUrl: string;
     private profileUrl: string;
+    private statsUrl: string;
     private followUrl: string;
     private unfollowUrl: string;
     private seenUrl: string;
@@ -27,6 +28,7 @@ export class SeriesService {
         // TODO: Change when we have spotlight
         this.spotlightSeriesUrl = this.baseUrl + 'series/top';
         this.profileUrl = this.baseUrl + 'profile/following';
+        this.statsUrl = this.baseUrl + 'profile/stats';
         this.singleSeriesUrl = this.baseUrl + 'series/';
         this.singleSeasonUrl = this.baseUrl + 'series/episodesbyseason/';
         this.followUrl = this.baseUrl + 'follow/';
@@ -70,6 +72,10 @@ export class SeriesService {
             .then(response => response.json())
             .catch(this.handleError);
     }
+
+    /*
+     * end seen
+     */
 
     getSingleSeries(uniqueName): Promise<Series> {
         return this.http.get(this.singleSeriesUrl + uniqueName)
@@ -117,6 +123,14 @@ export class SeriesService {
     /* TODO: move to profile service */
     getProfileSeries(): Promise<Series[]> {
         return this.http.get(this.profileUrl)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
+
+    /* TODO: caching ? */
+    getProfileStats(): Promise<any> {
+        return this.http.get(this.statsUrl)
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);

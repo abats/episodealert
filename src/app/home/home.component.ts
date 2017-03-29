@@ -58,8 +58,6 @@ export class HomeComponent implements OnInit {
         this.getSeriesGenres();
         this.getSpotlightSeries();
 
-        console.log(this.authService.isLoggedIn());
-
         if (!this.authService.isLoggedIn()) {
             this.authService.getAuth()
                 .then((authInfo) => {

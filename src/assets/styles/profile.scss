@@ -1,5 +1,18 @@
+.profile-series-list{
+  width: 100%;
+
+  th{
+    padding-bottom: 20px;
+  }
+
+  td{
+    padding: 5px 0px 5px 0px;
+  }
+}
+
 .profile-series{
 
+  // @TODO try to implement a variation on this: http://stackoverflow.com/questions/18744164/flex-box-align-last-row-to-grid/33375496#33375496
 
   text-align: left;
   margin: auto;
@@ -13,7 +26,9 @@
     position: relative;
     width: 15%;
     display: inline-block;
-    padding-bottom: 20px;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+
   }
 
   a{
@@ -29,4 +44,39 @@
     top: 58%;
     position: absolute;
   }
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.myshows-filters{
+
+  &-label{
+    color: $light-blue;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+
+  input{
+    padding: 6px;
+    margin: 0px;
+    color: #000;
+  }
+
+  .row{
+    font-size: 14px;
+    background-color: $primary-lighter;
+    padding: 14px 0px 14px 0px;
+  }
+
+
+}
+
+
+.ea-filter{
+  margin-left: 15px;
+  background-color: $primary-color;
 }

@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AuthService } from '../shared/services/authentication.service';
 import { Title, BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -19,7 +19,8 @@ import { RouterModule } from '@angular/router';
         RouterModule,
         SharedModule,
         BrowserModule,
-        HttpModule
+        HttpModule,
+        FormsModule
     ],
     providers: [
         SeriesService,
