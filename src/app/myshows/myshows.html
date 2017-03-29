@@ -48,7 +48,7 @@
             <h2>Profile Series</h2>
 
             <ul class="profile-series" *ngIf="profileSeries && profileSeriesView == 'poster'">
-                <li class="series" *ngFor="let series of profileSeries | searchPipe : 'name' : search ">
+                <li class="series" *ngFor="let series of profileSeries | asSearchPipe : 'name' : search ">
                     <div class="series-img">
                         <a [routerLink]="['/series', series.unique_name]">
                             <img class="img-responsive"
@@ -77,7 +77,7 @@
                     <th>Next episode</th>
                     <th>Archive show</th>
                 </tr>
-                <tr class="series" *ngFor="let series of profileSeries | searchPipe : 'name' : search ">
+                <tr class="series" *ngFor="let series of profileSeries | asSearchPipe : 'name' : search ">
                     <td>
                         <a [routerLink]="['/series', series.unique_name]">
                             <span class="title truncate" title="{{series.name}}">
