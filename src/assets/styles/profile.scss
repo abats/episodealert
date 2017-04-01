@@ -26,8 +26,8 @@
     position: relative;
     width: 15%;
     display: inline-block;
-    padding-bottom: 8px;
-    margin-bottom: 12px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
 
   }
 
@@ -55,21 +55,30 @@
 .myshows-filters{
 
   &-label{
-    color: $light-blue;
+    color: $light-text;
+    font-family: 'Raleway', sans-serif;
     font-size: 16px;
+    font-weight: 200;
+    letter-spacing: 0.1em;
     margin-right: 10px;
   }
 
   input{
-    padding: 6px;
+    padding: 6px 10px 6px 12px;
     margin: 0px;
     color: #000;
+    border: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-image: none;
+    
   }
 
   .row{
     font-size: 14px;
     background-color: $primary-lighter;
-    padding: 14px 0px 14px 0px;
+    padding: 20px 0px 20px 0px;
   }
 
 
