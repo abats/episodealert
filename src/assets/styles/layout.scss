@@ -8,7 +8,7 @@
 
 body {
   background-color: $background-color;
-  color: #e7e7e7;
+  color: #C9C9C9;
   font-family: $font-family;
   font-weight: 400;
   overflow-y: scroll;
@@ -37,6 +37,10 @@ body {
     background-color: $primary-lighter !important;
     color: $light-text !important;
     border: none;
+    font-family: $font-header;
+    font-weight: 200;
+    background-color: $primary-lighter;
+    letter-spacing: 0.08em;
   }
 
 li{
@@ -65,26 +69,26 @@ h1 {
   @media(max-width: $screen-xs-max){ padding-bottom: 10px; }
 
   border-bottom: 1px solid darken(#C9C9C9, 50%);
-  padding-top:0px;
-  padding-bottom: 12px;
-  margin-bottom: 15px;
-  font-size: 20px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
+  padding-top: 0px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
   color: #C9C9C9;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.09em;
 }
 
 h2 {
   @media(max-width: $screen-xs-max){ padding-bottom: 10px; }
   border-bottom: 1px solid darken(#C9C9C9, 50%);
-  padding-bottom: 12px;
-  margin-bottom: 15px;
-  font-size: 18px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
+  padding-bottom: 15px;
+  margin-bottom: 22px;
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
   color: #C9C9C9;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.09em;
 }
 
 
@@ -147,7 +151,7 @@ ul {
     color: $bright-highlight;
   }
   ul{
-    padding-left:30px;
+    padding-left: 30px;
     font-size: 1.3em;
   }
 
@@ -236,7 +240,7 @@ ul {
 
 .container--navbar {
   font-family: $font-header;
-  font-weight: 100;
+  font-weight: 200;
   background-color: $primary-lighter;
   letter-spacing: 0.08em;
 
@@ -262,9 +266,7 @@ ul {
   color: #999999;
   padding-top: 30px;
   padding-bottom: 20px;
-
   margin-bottom: 5px;
-
   font-size: 80%;
 
   div{

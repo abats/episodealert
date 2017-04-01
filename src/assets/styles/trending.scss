@@ -26,7 +26,7 @@
 
 .home-banners{
 
-  margin-bottom: 30px;
+  margin-bottom: -15px;
 
   li:first-child {
     padding-right: 15px;
@@ -58,7 +58,7 @@
     }
 
     .home-banners-season {
-      left: 46px;
+      left: 45px;
     }
 
     h3{
@@ -85,8 +85,8 @@
       z-index: 3;
       font-family: 'Raleway', sans-serif;
       font-weight: 500;
-      font-size: 22px;
-      letter-spacing: 0.05em;
+      font-size: 21px;
+      letter-spacing: 0.09em;
       position: absolute;
       bottom: 16px;
       left: 30px;
@@ -96,12 +96,13 @@
 
     .home-banners-season{
       z-index: 3;
-      font-size: 22px;
       font-family: 'Raleway', sans-serif;
+      font-size: 19px;
+      letter-spacing: 0.09em;
       position: absolute;
       margin-left: 0px;
-      font-weight: 100;
-      bottom: 46px;
+      font-weight: 200;
+      bottom: 52px;
       left: 30px;
       color: #fff;
     }
@@ -120,7 +121,7 @@
 
       .rating{
         font-family: 'Lato', sans-serif;
-          font-weight: 300;
+        font-weight: 300;
         font-size: 20px;
         display: block;
       }
@@ -300,19 +301,19 @@ ul{
   }
 
   .title{
-    margin:  12px 20px 5px 20px;
+    margin:  14px 20px 3px 20px;
     font-family: 'Lato', sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 12px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
   }
 
   .season{
-    padding:  0px 0px 20px 20px;
+    padding:  0px 0px 17px 20px;
     font-family: 'Lato', sans-serif;
-    font-weight: 400;
+    font-weight: 200;
     font-size: 12px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     color: $light-text;
   }
 
