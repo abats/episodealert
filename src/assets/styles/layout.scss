@@ -642,3 +642,39 @@ li.disabled{
   color: #FFFFFF;
   vertical-align: middle;
 }
+
+/* -----header----- */
+
+.fancy {
+  padding-bottom: 0px;
+  margin-top: 30px;
+  text-align: center;
+  color: $background-line-color;
+}
+.fancy.background {
+  position: relative;
+  z-index: 1;
+}
+.fancy.background:before {
+  border-top: 1px solid;
+  content: "";
+  margin: 0 auto;
+  /* this centers the line to the full width specified */
+  position: absolute;
+  /* positioning must be absolute here, and relative positioning must be applied to the parent */
+  top: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 95%;
+  z-index: -1;
+}
+.fancy.background span {
+  color: $light-text;
+  /* to hide the lines from behind the text, you have to set the background color the same as the container */
+  background: $light-grey-background;
+  padding: 0 15px;
+}
+
+
+

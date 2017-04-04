@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AuthService } from '../shared/services/authentication.service';
 import { Title } from '@angular/platform-browser';
 import { FormsModule }  from '@angular/forms';
+import { ModalModule } from 'ng2-bootstrap/components/modal';
 
 
 @NgModule({
@@ -18,12 +19,13 @@ import { FormsModule }  from '@angular/forms';
     imports: [
         SharedModule,
         HttpModule,
-        FormsModule
+        FormsModule,
+        ModalModule
     ],
     providers: [
         SeriesService,
         AuthService,
-        Title
+        Title,
     ]
 })
 export class UserModule {

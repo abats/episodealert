@@ -10,6 +10,7 @@ import { TodolistModule } from './todolist/todolist.module';
 import { HttpModule } from '@angular/http';
 import { SeriesDetailModule } from './series/series-detail/series-detail.module';
 import { UserModule } from './user/user.module';
+import { ModalModule } from 'ng2-bootstrap/components/modal';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { UserModule } from './user/user.module';
         TodolistModule,
         SeriesDetailModule,
         UserModule,
+        ModalModule,
         routing
     ],
     providers: [
