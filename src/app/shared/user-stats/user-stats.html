@@ -1,10 +1,10 @@
-<div class="container" *ngIf="profileStats">
+<div class="container">
     <div class="row">
         <div class="col-md-12 col-lg-12" >
             <p class="user-greeting">
-                Currently you are following <a [routerLink]="['/myshows']">{{ profileStats.following }}</a> shows.
-                You have {{ profileStats.unseen }} unwatched episodes waiting for you. Use the filters below to display shows that match your criteria.
-                By the way, did you know you are following more series than {{ profileStats.followmorethan }}% of your fellow Episode Alert users?
+                Currently you are following <a [routerLink]="['/myshows']">{{ profileStats?.following }}</a> shows.
+                You have {{ profileStats?.unseen }} unwatched episodes waiting for you. Use the filters below to display shows that match your criteria.
+                By the way, did you know you are following more series than {{ profileStats?.followmorethan }}% of your fellow Episode Alert users?
             </p>
         </div>
     </div>

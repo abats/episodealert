@@ -15,6 +15,8 @@ export class MyshowsComponent implements OnInit {
 
     profileSeries: Series [];
     profileSeriesView: String;
+    order: String;
+    orderReverse: boolean;
 
     constructor( private seriesService: SeriesService,
                  private authService: AuthService,
@@ -40,9 +42,16 @@ export class MyshowsComponent implements OnInit {
         }
     }
 
+    setOrder(order){
+        this.orderReverse = !this.orderReverse;
+        this.order = order;
+    }
+
     ngOnInit() {
         // @Todo implement view
         this.profileSeriesView = 'poster';
+        this.order = '';
+        this.orderReverse = true;
         this.getProfileSeries();
 
         console.log(this.authService.isLoggedIn());

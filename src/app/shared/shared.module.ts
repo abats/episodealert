@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SearchPipe, FanartPipe, UrlPipe } from './pipes/index';
+import { SearchPipe, FanartPipe, UrlPipe, OrderBy } from './pipes/index';
 import { FollowbuttonComponent } from './follow-button/index';
 import { SeenbuttonComponent } from './seen-button/index';
 import { PosterComponent } from './poster/poster.component';
@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
+        OrderBy,
         SearchPipe,
         UrlPipe,
         FanartPipe,
@@ -23,6 +24,7 @@ import { RouterModule } from '@angular/router';
     ],
 
     exports: [
+        OrderBy,
         SearchPipe,
         UrlPipe,
         FanartPipe,

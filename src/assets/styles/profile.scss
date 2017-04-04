@@ -3,10 +3,19 @@
 
   th{
     padding-bottom: 20px;
+
+    &:hover{
+      cursor: pointer;
+    }
+
   }
 
   td{
     padding: 5px 0px 5px 0px;
+  }
+
+  tr:hover .series-indicator{
+    display:block;
   }
 }
 
@@ -54,6 +63,8 @@
 
 .myshows-filters{
 
+  margin-bottom: 24px;
+
   &-label{
     color: $light-text;
     font-family: 'Raleway', sans-serif;
@@ -81,11 +92,31 @@
     padding: 20px 0px 20px 0px;
   }
 
-
 }
 
 
 .ea-filter{
   margin-left: 15px;
   background-color: $primary-color;
+
+  &-viewtoggle{
+    display: inline-block;
+    float: right;
+    margin-top: 5px;
+    font-size: 20px;
+
+    :hover{
+      color: $bright-highlight;
+      cursor: pointer;
+
+    }
+  }
+}
+
+
+.series-indicator{
+  position: absolute;
+  left: 2px;
+  margin-top: 3px;
+  display:none;
 }

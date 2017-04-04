@@ -27,15 +27,13 @@
                 <!--<span ng-show="archive == false" class="fa fa-plus"></span>-->
                 archived
             </button>
-            <button class="btn btn-profile" (click)="toggleSeriesView()">Switch view placeholder</button>
+
+            <span class="ea-filter-viewtoggle">
+              <i class="fa fa-th-large" [hidden]="profileSeriesView =='poster'" aria-hidden="true" (click)="toggleSeriesView()"></i>
+              <i class="fa fa-th-list" [hidden]="profileSeriesView =='list'" aria-hidden="true" (click)="toggleSeriesView()"></i>
+            </span>
+
         </div>
-
-
-
-        <!--<button class="hidden-xs btn btn-profile&#45;&#45;toggle" ng-class="smallview" ng-click="toggleSmallView()">-->
-        <!--<span ng-show="smallview == true" class="fa fa-th-large"></span>-->
-        <!--<span ng-show="smallview == false" class="fa fa-th ng-hide"></span>-->
-        <!--</button>-->
 
     </div>
 </div>
@@ -44,8 +42,6 @@
     <div class="row">
         <!-- Trending Series -->
         <div class="col-md-12 col-lg-12 trending-background-color">
-
-            <h2>Profile Series</h2>
 
             <ul class="profile-series" *ngIf="profileSeries && profileSeriesView == 'poster'">
                 <li class="series" *ngFor="let series of profileSeries | asSearchPipe : 'name' : search ">
@@ -69,16 +65,29 @@
 
             <table class="profile-series-list" *ngIf="profileSeries && profileSeriesView == 'list'">
                 <tr>
-                    <th>Show</th>
-                    <th>Unseen</th>
-                    <th>Seasons</th>
-                    <th>Status</th>
-                    <th>Rating</th>
-                    <th>Next episode</th>
+                    <th (click)="setOrder('name')">
+                        <as-orderdisplay activeOrder="{{order}}" order="name" orderReverse="{{orderReverse}}"></as-orderdisplay>
+                        Show
+                    </th>
+                    <th (click)="setOrder('unseen_episodes')">
+                        <as-orderdisplay activeOrder="{{order}}" order="unseen_episodes" orderReverse="{{orderReverse}}"></as-orderdisplay>
+                        Unseen</th>
+                    <th (click)="setOrder('season_amount')">
+                        <as-orderdisplay activeOrder="{{order}}" order="season_amount" orderReverse="{{orderReverse}}"></as-orderdisplay>
+                        Seasons
+                    </th>
+                    <th (click)="setOrder('status')">
+                        <as-orderdisplay activeOrder="{{order}}" order="status" orderReverse="{{orderReverse}}"></as-orderdisplay>
+                        Status</th>
+                    <th (click)="setOrder('rating')">
+                        <as-orderdisplay activeOrder="{{order}}" order="rating" orderReverse="{{orderReverse}}"></as-orderdisplay>
+                        Rating</th>
+                    <th (click)="setOrder('')">Next episode</th>
                     <th>Archive show</th>
                 </tr>
-                <tr class="series" *ngFor="let series of profileSeries | asSearchPipe : 'name' : search ">
+                <tr class="series" *ngFor="let series of profileSeries | asSearchPipe : 'name' : search | asOrderBy: order : orderReverse">
                     <td>
+                        <i class="fa fa-angle-right series-indicator" aria-hidden="true"></i>
                         <a [routerLink]="['/series', series.unique_name]">
                             <span class="title truncate" title="{{series.name}}">
                                 {{ series.name }}
@@ -90,7 +99,7 @@
                     <td>{{ series.status }}</td>
                     <td>{{ series.rating }}</td>
                     <td>todo: next episode</td>
-                    <td><button>Todo archive logic</button></td>
+                    <td>Archive</td>
                 </tr>
             </table>
         </div>

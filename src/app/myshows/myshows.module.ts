@@ -7,9 +7,12 @@ import { AuthService } from '../shared/services/authentication.service';
 import { Title, BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
+import { OrderDisplayComponent } from './orderDisplay/orderdisplay.component';
+
 
 @NgModule({
     declarations: [
+        OrderDisplayComponent,
         MyshowsComponent,
     ],
     exports: [
