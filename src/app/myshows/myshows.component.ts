@@ -3,6 +3,7 @@ import { SeriesService } from '../shared/services/series.service';
 import { Series } from '../shared/model/series';
 import { AuthService } from '../shared/services/authentication.service';
 import { Title } from '@angular/platform-browser';
+import { LocalStorage, StorageProperty } from 'h5webstorage';
 
 @Component({
     selector: 'as-myshows',
@@ -14,15 +15,17 @@ import { Title } from '@angular/platform-browser';
 export class MyshowsComponent implements OnInit {
 
     profileSeries: Series [];
-    profileSeriesView: String;
-    order: String;
+    search: String;
+    order: String = '';
     orderReverse: boolean;
+    @StorageProperty() public profileSeriesView: string;
 
     constructor( private seriesService: SeriesService,
                  private authService: AuthService,
-                 private titleService: Title) {
+                 private titleService: Title,
+                 private localStorage: LocalStorage) {
 
-        titleService.setTitle('Episode Alert - Guide');
+        titleService.setTitle('Episode Alert - My Shows');
 
     }
 
@@ -35,11 +38,21 @@ export class MyshowsComponent implements OnInit {
     }
 
     toggleSeriesView(){
+        let newValue: string;
+
         if(this.profileSeriesView === 'poster'){
-            this.profileSeriesView = 'list';
-        }else{
-            this.profileSeriesView = 'poster';
+            newValue = 'poster_big';
+
+        }else if(this.profileSeriesView === 'poster_big'){
+            newValue = 'list';
         }
+
+        else if(this.profileSeriesView === 'list'){
+            newValue = 'poster';
+        }
+
+        this.profileSeriesView = newValue;
+
     }
 
     setOrder(order){
@@ -48,8 +61,6 @@ export class MyshowsComponent implements OnInit {
     }
 
     ngOnInit() {
-        // @Todo implement view
-        this.profileSeriesView = 'poster';
         this.order = '';
         this.orderReverse = true;
         this.getProfileSeries();

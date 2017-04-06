@@ -19,6 +19,8 @@
   }
 }
 
+
+
 .profile-series{
 
   // @TODO try to implement a variation on this: http://stackoverflow.com/questions/18744164/flex-box-align-last-row-to-grid/33375496#33375496
@@ -52,6 +54,12 @@
     right: 10%;
     top: 58%;
     position: absolute;
+  }
+}
+
+.big-poster{
+  li{
+    width: 24%;
   }
 }
 

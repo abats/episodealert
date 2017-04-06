@@ -8,7 +8,7 @@ import { Title, BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { OrderDisplayComponent } from './orderDisplay/orderdisplay.component';
-
+import { WebStorageModule, BROWSER_STORAGE_PROVIDERS } from 'h5webstorage';
 
 @NgModule({
     declarations: [
@@ -23,12 +23,14 @@ import { OrderDisplayComponent } from './orderDisplay/orderdisplay.component';
         SharedModule,
         BrowserModule,
         HttpModule,
-        FormsModule
+        FormsModule,
+        WebStorageModule
     ],
     providers: [
         SeriesService,
         AuthService,
-        Title
+        Title,
+        BROWSER_STORAGE_PROVIDERS
     ]
 })
 export class MyshowsModule {

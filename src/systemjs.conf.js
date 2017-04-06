@@ -13,6 +13,7 @@
         'app': 'src/tmp/app',
         'test': 'src/tmp/test',
         'ng2-bootstrap': 'node_modules/ng2-bootstrap',
+        'h5webstorage' : 'node_modules/h5webstorage'
     };
 
     // packages tells the System loader how to load when no filename and/or no extension
@@ -45,7 +46,8 @@
 
         // 3rd party barrels
         'lodash',
-        'ng2-bootstrap'
+        'ng2-bootstrap',
+        'h5webstorage'
     ];
 
     // Add package entries for angular packages
@@ -58,7 +60,8 @@
         'platform-browser',
         'platform-browser-dynamic',
         'router',
-        'ng2-bootstrap'
+        'ng2-bootstrap',
+        'h5webstorage'
     ];
 
     npmPackages.forEach(function (pkgName) {
