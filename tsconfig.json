@@ -1,16 +1,25 @@
 {
   "compilerOptions": {
-    "types" : [],
     "target": "es5",
-    "module": "commonjs",
+    "module": "es6",
     "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "coverage",
+    "config",
+    "dist",
+    "report"
   ]
 }

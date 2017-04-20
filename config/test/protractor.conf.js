@@ -1,21 +1,46 @@
-var glob = require('glob');
-var seleniumPath = '../node_modules/gulp-protractor/node_modules/protractor/selenium/';
-var seleniumJarPath = '';
+require('ts-node').register({
+  project: 'tsconfig-e2e.json'
+});
 
-glob(seleniumPath + '*.jar',
-    function(err, files) {
-        seleniumJarPath = files[0];
-    });
+var helpers = require('../webpack/helpers');
 
 exports.config = {
-    seleniumServerJar: seleniumJarPath,
-    capabilities: {
-        'browserName': 'chrome'
-    },
-    jasmineNodeOpts: {
-        showColors: true,
-        defaultTimeoutInterval: 60000
-    },
-    allScriptsTimeout: 30000,
-    useAllAngular2AppRoots: true
+  baseUrl: 'http://localhost:8080/',
+
+  specs: [
+    helpers.root('e2e/**/*.spec.ts')
+  ],
+  exclude: [],
+
+  framework: 'jasmine2',
+
+  allScriptsTimeout: 110000,
+
+  jasmineNodeOpts: {
+    showTiming: true,
+    showColors: true,
+    isVerbose: false,
+    includeStackTrace: false,
+    defaultTimeoutInterval: 400000
+  },
+  directConnect: true,
+
+  capabilities: {
+    'browserName': 'chrome',
+    'chromeOptions': {
+      'args': ['show-fps-counter=true']
+    }
+  },
+
+  onPrepare: function() {
+    browser.ignoreSynchronization = true;
+  },
+
+  /**
+   * Angular 2 configuration
+   *
+   * useAllAngular2AppRoots: tells Protractor to wait for any angular2 apps on the page instead of just the one matching
+   * `rootEl`
+   */
+   useAllAngular2AppRoots: true
 };

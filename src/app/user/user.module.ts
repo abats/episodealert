@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AuthService } from '../shared/services/authentication.service';
 import { Title } from '@angular/platform-browser';
 import { FormsModule }  from '@angular/forms';
-import { ModalModule } from 'ng2-bootstrap/components/modal';
+import { ModalModule } from 'ng2-bootstrap';
 
 
 @NgModule({
@@ -20,7 +20,7 @@ import { ModalModule } from 'ng2-bootstrap/components/modal';
         SharedModule,
         HttpModule,
         FormsModule,
-        ModalModule
+        ModalModule.forRoot()
     ],
     providers: [
         SeriesService,

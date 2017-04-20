@@ -3,8 +3,8 @@ import { Series } from '../model/series';
 import { SeriesService } from '../services/series.service';
 
 @Component({
-    selector: 'as-follow',
-    templateUrl: 'app/shared/follow-button/follow-button.html',
+    selector: 'app-follow',
+    templateUrl: 'follow-button.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 

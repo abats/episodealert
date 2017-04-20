@@ -3,7 +3,7 @@ import { Http, Headers } from '@angular/http';
 import { Series } from '../model/series';
 
 import 'rxjs/add/operator/toPromise';
-import { CONSTANTS } from '../constant/index';
+import { CONSTANTS } from '../constant/main';
 
 @Injectable()
 export class SeriesService {
@@ -22,7 +22,7 @@ export class SeriesService {
     private unseenUrl: string;
 
     constructor( private http: Http ) {
-        this.baseUrl = CONSTANTS.MAIN.APP.API_BASE_URL;
+        this.baseUrl = CONSTANTS.APP.API_BASE_URL;
         this.topSeriesUrl = this.baseUrl + 'series/top';
         this.trendingSeriesUrl = this.baseUrl + 'series/trending';
         // TODO: Change when we have spotlight

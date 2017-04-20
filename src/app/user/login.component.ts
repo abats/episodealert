@@ -6,10 +6,10 @@ import { AuthService } from '../shared/services/authentication.service';
 
 
 @Component({
-    selector: 'as-login-form',
-    templateUrl: 'app/user/login.html',
+    selector: 'app-login-form',
+    templateUrl: 'login.html',
     styleUrls: [
-        'app/user/login.css'
+        'login.scss'
     ]
 })
 

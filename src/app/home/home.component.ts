@@ -5,10 +5,10 @@ import { Title } from '@angular/platform-browser';
 import { AuthService } from '../shared/services/authentication.service';
 
 @Component({
-    selector: 'as-home',
-    templateUrl: 'app/home/home.html',
+    selector: 'app-home',
+    templateUrl: 'home.component.html',
     styleUrls: [
-        'app/home/home.css'
+        'home.component.scss'
     ]
 })
 export class HomeComponent implements OnInit {

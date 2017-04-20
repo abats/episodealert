@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { HomeComponent } from './index';
+import { HomeComponent } from './home.component';
 import { SharedModule } from '../shared/shared.module';
 import { SeriesService } from '../shared/services/series.service';
 import { HttpModule } from '@angular/http';
 import { AuthService } from '../shared/services/authentication.service';
 import { Title } from '@angular/platform-browser';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
     declarations: [
@@ -16,8 +16,8 @@ import { RouterModule } from '@angular/router';
         HomeComponent
     ],
     imports: [
+        HomeRoutingModule,
         RouterModule,
-        BrowserModule,
         SharedModule,
         HttpModule
     ],

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { SeriesService } from '../../shared/services/series.service';
 
 @Component({
-    selector: 'as-userstats',
-    templateUrl: 'app/shared/user-stats/user-stats.html'
+    selector: 'app-userstats',
+    templateUrl: 'user-stats.html'
 })
 
 export class UserStatsComponent implements OnInit {

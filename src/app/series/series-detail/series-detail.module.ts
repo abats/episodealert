@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { SeriesDetailComponent } from './index';
+import { SeriesDetailComponent } from './series-detail.component';
 import { HttpModule } from '@angular/http';
 import { Title } from '@angular/platform-browser';
-import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from '../../shared/shared.module';
-import { TabsModule } from 'ng2-bootstrap/components/tabs';
+import { SeriesDetailRoutingModule } from './series-detail.routes';
+import { TabsModule } from 'ng2-bootstrap';
 
 @NgModule({
     declarations: [
@@ -14,10 +14,10 @@ import { TabsModule } from 'ng2-bootstrap/components/tabs';
         SeriesDetailComponent
     ],
     imports: [
-        BrowserModule,
         HttpModule,
         SharedModule,
-        TabsModule
+        SeriesDetailRoutingModule,
+        TabsModule.forRoot()
     ],
     providers: [
         Title

@@ -10,10 +10,10 @@ import { provideRoutes, Routes, RouterModule } from '@angular/router';
 import { Component } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
+import { CoreModule } from './core/core.module';
 
 @Component({
-    selector: 'as-test-cmp',
+    selector: 'app-test-cmp',
     template: '<div class="title">Hello test</div>'
 })
 class TestRouterComponent {
@@ -30,24 +30,23 @@ describe('AppComponent', () => {
         TestBed.configureTestingModule({
             declarations: [
                 TestRouterComponent,
-                AppComponent,
-                NavbarComponent
+                AppComponent
             ],
-            imports: [ RouterTestingModule, RouterModule ],
+            imports: [ RouterTestingModule, RouterModule, CoreModule ],
             providers: [ provideRoutes(config) ]
         });
     });
 
     it('should have title Hello world', async(() => {
-        // TestBed.compileComponents().then(() => {
-        //     let fixture: ComponentFixture<AppComponent>;
-        //     fixture = TestBed.createComponent(AppComponent);
-        //     fixture.detectChanges();
-        //
-        //     let compiled = fixture.debugElement.nativeElement;
-        //     expect(compiled).toBeDefined();
-        //     // TODO: find a way to compile the routed component
-        //     // expect(compiled.querySelector('div.title')).toMatch('Hello world');
-        // });
+        TestBed.compileComponents().then(() => {
+            let fixture: ComponentFixture<AppComponent>;
+            fixture = TestBed.createComponent(AppComponent);
+            fixture.detectChanges();
+
+            let compiled = fixture.debugElement.nativeElement;
+            expect(compiled).toBeDefined();
+            // TODO: find a way to compile the routed component
+            // expect(compiled.querySelector('div.title')).toMatch('Hello world');
+        });
     }));
 });

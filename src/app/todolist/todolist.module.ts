@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { CompletedFilterPipe, TodolistComponent } from './index';
+
+import { CompletedFilterPipe } from './completed-filter.pipe';
+import { TodolistComponent } from './todolist.component';
+import { TodolistRoutingModule } from './todolist-routing.module';
 
 @NgModule({
     declarations: [
@@ -10,7 +13,8 @@ import { CompletedFilterPipe, TodolistComponent } from './index';
     ],
     imports: [
         FormsModule,
-        BrowserModule
+        CommonModule,
+        TodolistRoutingModule
     ],
     exports: [
         CompletedFilterPipe,

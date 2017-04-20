@@ -3,13 +3,16 @@ import { Component } from '@angular/core';
 import { Todo } from './todo.model';
 
 @Component({
-    selector: 'as-todolist',
-    templateUrl: 'app/todolist/todolist.html'
+    selector: 'app-todolist',
+    templateUrl: 'todolist.component.html',
+    styleUrls: [
+        'todolist.component.scss'
+    ]
 })
 export class TodolistComponent {
     public todo: Todo;
-    private list: Todo[];
-    private showCompleted: Boolean;
+    public showCompleted: boolean;
+    public list: Todo[];
 
     constructor() {
         this.showCompleted = true;

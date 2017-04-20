@@ -5,10 +5,10 @@ import { AuthService } from '../shared/services/authentication.service';
 import { Title } from '@angular/platform-browser';
 
 @Component({
-    selector: 'as-guide',
-    templateUrl: 'app/guide/guide.html',
+    selector: 'app-guide',
+    templateUrl: 'guide.html',
     styleUrls: [
-        'app/guide/guide.css'
+        'guide.scss'
     ]
 })
 export class GuideComponent implements OnInit {

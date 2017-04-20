@@ -2,8 +2,8 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { SeriesService } from '../services/series.service';
 
 @Component({
-    selector: 'as-seen',
-    templateUrl: 'app/shared/seen-button/seen-button.html',
+    selector: 'app-seen',
+    templateUrl: 'seen-button.html',
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 

@@ -6,9 +6,9 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
-    templateUrl: 'app/series/series-detail/series-detail.html',
+    templateUrl: 'series-detail.html',
     styleUrls: [
-        'app/series/series-detail/series-detail.css'
+        'series-detail.scss'
     ]
 })
 
@@ -18,14 +18,19 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
     uniqueName: string;
 
     public tabs: Array<any> = [];
+    public tabs2: any[] = [
+        {title: 'Dynamic Title 1', content: 'Dynamic content 1'},
+        {title: 'Dynamic Title 2', content: 'Dynamic content 2', disabled: true},
+        {title: 'Dynamic Title 3', content: 'Dynamic content 3', removable: true}
+    ];
 
-    private subscription: Subscription;
+    subscription: Subscription;
 
     createSeriesSeasonTabs(seasonAmount) {
 
         // don't judge me for this code
 
-        if( this.series.has_specials ) {
+        if ( this.series.has_specials ) {
             for (let i = 0; i < seasonAmount; i++) {
                 console.log('add a tab');
 
@@ -35,7 +40,7 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
                     this.tabs.push( {title: 'Season ' +  i , content: []} );
                 }
             }
-        }else{
+        }else {
             for (let i = 0; i < seasonAmount; i++) {
                 this.tabs.push( {title: 'Season ' +  (i + 1)  , content: []} );
             }
@@ -76,9 +81,9 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
     getSeriesSeason(seriesId: number, seasonNumber: number) {
         this.seriesService.getSeriesSeason(seriesId, seasonNumber).then(
             (season) => {
-                if(this.series.has_specials){
+                if (this.series.has_specials) {
                     this.tabs[seasonNumber].content = season;
-                }else{
+                }else {
                     this.tabs[seasonNumber - 1].content = season;
                 }
 
@@ -87,9 +92,9 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
     }
 
     public loadTab(tab): void {
-        if (this.series.has_specials){
+        if (this.series.has_specials) {
             this.getSeriesSeason(this.series.id, tab);
-        }else{
+        }else {
             this.getSeriesSeason(this.series.id, tab + 1);
         }
 

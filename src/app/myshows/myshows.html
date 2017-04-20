@@ -1,4 +1,4 @@
-<as-userstats *ngIf="authService.isLoggedIn()"></as-userstats>
+<app-userstats *ngIf="authService.isLoggedIn()"></app-userstats>
 
 <div class="container myshows-filters">
     <div class="row profile-filters ng-scope">
@@ -69,6 +69,7 @@
 
 
 <div class="container myshows-shows">
+
     <div class="row">
         <!-- Trending Series -->
         <div class="col-md-12 col-lg-12 trending-background-color">
@@ -96,21 +97,21 @@
             <table class="profile-series-list" *ngIf="profileSeries && profileSeriesView == 'list'">
                 <tr>
                     <th (click)="setOrder('name')">
-                        <as-orderdisplay activeOrder="{{order}}" order="name" orderReverse="{{orderReverse}}"></as-orderdisplay>
+                        <app-orderdisplay activeOrder="{{order}}" order="name" orderReverse="{{orderReverse}}"></app-orderdisplay>
                         Show
                     </th>
                     <th (click)="setOrder('unseen_episodes')">
-                        <as-orderdisplay activeOrder="{{order}}" order="unseen_episodes" orderReverse="{{orderReverse}}"></as-orderdisplay>
+                        <app-orderdisplay activeOrder="{{order}}" order="unseen_episodes" orderReverse="{{orderReverse}}"></app-orderdisplay>
                         Unseen</th>
                     <th (click)="setOrder('season_amount')">
-                        <as-orderdisplay activeOrder="{{order}}" order="season_amount" orderReverse="{{orderReverse}}"></as-orderdisplay>
+                        <app-orderdisplay activeOrder="{{order}}" order="season_amount" orderReverse="{{orderReverse}}"></app-orderdisplay>
                         Seasons
                     </th>
                     <th (click)="setOrder('status')">
-                        <as-orderdisplay activeOrder="{{order}}" order="status" orderReverse="{{orderReverse}}"></as-orderdisplay>
+                        <app-orderdisplay activeOrder="{{order}}" order="status" orderReverse="{{orderReverse}}"></app-orderdisplay>
                         Status</th>
                     <th (click)="setOrder('rating')">
-                        <as-orderdisplay activeOrder="{{order}}" order="rating" orderReverse="{{orderReverse}}"></as-orderdisplay>
+                        <app-orderdisplay activeOrder="{{order}}" order="rating" orderReverse="{{orderReverse}}"></app-orderdisplay>
                         Rating</th>
                     <th (click)="setOrder('')">Next episode</th>
                     <th>Archive show</th>

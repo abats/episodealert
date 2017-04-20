@@ -1,38 +1,37 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { UserStatsComponent } from './user-stats/user-stats.component';
+import { RouterModule } from '@angular/router';
 import { SearchPipe, FanartPipe, UrlPipe, OrderBy } from './pipes/index';
 import { FollowbuttonComponent } from './follow-button/index';
 import { SeenbuttonComponent } from './seen-button/index';
-import { PosterComponent } from './poster/poster.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { UserStatsComponent } from './user-stats/user-stats.component';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
-    declarations: [
-        OrderBy,
-        SearchPipe,
-        UrlPipe,
-        FanartPipe,
-        FollowbuttonComponent,
-        SeenbuttonComponent,
-        PosterComponent,
-        UserStatsComponent
-    ],
     imports: [
-        BrowserModule,
+        CommonModule,
+        FormsModule,
         RouterModule
     ],
-
-    exports: [
+    declarations: [
+        UserStatsComponent,
         OrderBy,
         SearchPipe,
         UrlPipe,
         FanartPipe,
         FollowbuttonComponent,
-        SeenbuttonComponent,
-        PosterComponent,
-        UserStatsComponent
+        SeenbuttonComponent
+    ],
+    exports: [
+        CommonModule,
+        FormsModule,
+        UserStatsComponent,
+        OrderBy,
+        SearchPipe,
+        UrlPipe,
+        FanartPipe,
+        FollowbuttonComponent,
+        SeenbuttonComponent
     ]
 })
-export class SharedModule {
-}
+export class SharedModule { }

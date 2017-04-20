@@ -1,15 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
-import { CONSTANTS } from './shared';
+import { CONSTANTS } from './shared/constant/main';
 
 @Component({
-    selector: 'as-main-app',
-    templateUrl: 'app/app.html'
+    selector: 'app-main',
+    templateUrl: 'app.component.html',
+    styleUrls: ['./app.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
     public appBrand: string;
 
     constructor() {
-        this.appBrand = CONSTANTS.MAIN.APP.BRAND;
+        this.appBrand = CONSTANTS.APP.BRAND;
     }
 }

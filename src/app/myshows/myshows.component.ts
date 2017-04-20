@@ -3,13 +3,13 @@ import { SeriesService } from '../shared/services/series.service';
 import { Series } from '../shared/model/series';
 import { AuthService } from '../shared/services/authentication.service';
 import { Title } from '@angular/platform-browser';
-import { LocalStorage, StorageProperty } from 'h5webstorage';
+import { LocalStorage, StorageProperty } from '../../../node_modules/h5webstorage';
 
 @Component({
-    selector: 'as-myshows',
-    templateUrl: 'app/myshows/myshows.html',
+    selector: 'app-myshows',
+    templateUrl: 'myshows.html',
     styleUrls: [
-        'app/myshows/myshows.css'
+        'myshows.scss'
     ]
 })
 export class MyshowsComponent implements OnInit {
@@ -32,22 +32,21 @@ export class MyshowsComponent implements OnInit {
     getProfileSeries() {
         this.seriesService.getProfileSeries().then(
             (series) => {
+                console.log(series);
                 this.profileSeries = series;
             }
         );
     }
 
-    toggleSeriesView(){
+    toggleSeriesView() {
         let newValue: string;
 
-        if(this.profileSeriesView === 'poster'){
+        if (this.profileSeriesView === 'poster') {
             newValue = 'poster_big';
 
-        }else if(this.profileSeriesView === 'poster_big'){
+        } else if (this.profileSeriesView === 'poster_big') {
             newValue = 'list';
-        }
-
-        else if(this.profileSeriesView === 'list'){
+        } else if (this.profileSeriesView === 'list') {
             newValue = 'poster';
         }
 
@@ -55,7 +54,7 @@ export class MyshowsComponent implements OnInit {
 
     }
 
-    setOrder(order){
+    setOrder(order) {
         this.orderReverse = !this.orderReverse;
         this.order = order;
     }
@@ -64,6 +63,11 @@ export class MyshowsComponent implements OnInit {
         this.order = '';
         this.orderReverse = true;
         this.getProfileSeries();
+
+        // TODO: get the profileSeriesView on init, otherwise set it to a default
+        if (!this.profileSeriesView) {
+            this.profileSeriesView = 'poster';
+        }
 
         console.log(this.authService.isLoggedIn());
 

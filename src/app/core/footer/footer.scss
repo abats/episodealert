@@ -1,0 +1,37 @@
+.footer{
+  color: #999999;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  margin-bottom: 5px;
+  font-size: 80%;
+
+  div{
+    text-align: right;
+  }
+
+  div:first-child {
+    text-align: left;
+  }
+
+  ul {
+    list-style-type: none;
+
+    li{
+      display: inline-block;
+    }
+  }
+
+  .nav-small{
+
+    text-transform: uppercase;
+    top: 6px;
+    font-size: 13px;
+
+    .nav-link{
+      color: #999999;
+      margin-left: 25px;
+    }
+
+  }
+
+}

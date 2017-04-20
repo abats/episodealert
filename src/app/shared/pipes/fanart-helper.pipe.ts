@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { CONSTANTS } from '../constant/index';
+import { CONSTANTS } from '../constant/main';
 
 @Pipe({
     name: 'asFanartPipe',
@@ -11,7 +11,7 @@ export class FanartPipe implements PipeTransform {
     private baseUrl: string;
 
     constructor() {
-        this.baseUrl = CONSTANTS.MAIN.APP.IMG_BASE_URL;
+        this.baseUrl = CONSTANTS.APP.IMG_BASE_URL;
     }
 
     transform(unique_name: string, fanart_name: string) {

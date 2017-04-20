@@ -1,40 +1,21 @@
-// Turn on full stack traces in errors to help debugging
-Error.stackTraceLimit=Infinity;
+Error.stackTraceLimit = Infinity;
 
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
+require('core-js/es6');
+require('reflect-metadata');
 
-// Cancel Karma's synchronous start,
-// we will call `__karma__.start()` later, once all the specs are loaded.
-__karma__.loaded = function() {};
+require('zone.js/dist/zone');
+require('zone.js/dist/long-stack-trace-zone');
+require('zone.js/dist/proxy');
+require('zone.js/dist/sync-test');
+require('zone.js/dist/jasmine-patch');
+require('zone.js/dist/async-test');
+require('zone.js/dist/fake-async-test');
 
-System.import('test/test-helpers/setup')
-.then(function() {
-    return Promise.all(
-        Object.keys(window.__karma__.files)
-        .filter(onlySpecFiles)
-        .map(file2moduleName)
-        .map(importModules)
-    );
-})
-.then(function() {
-    __karma__.start();
-}, function(error) {
-    __karma__.error(error.name + ": " + error.message);
-});
+var appContext = require.context('../../src/app', true, /\.ts/);
 
-// Filter spec files
-function onlySpecFiles(path) {
-  return /\.spec\.js$/.test(path);
-}
+appContext.keys().forEach(appContext);
 
-// Normalize paths to module names.
-function file2moduleName(filePath) {
-  return filePath.replace(/\\/g, '/')
-    .replace(/^\/base\//, '')
-    .replace(/\.js/, '');
-}
+var testing = require('@angular/core/testing');
+var browser = require('@angular/platform-browser-dynamic/testing');
 
-// Import module path
-function importModules(path) {
-    return System.import(path);
-}
+testing.TestBed.initTestEnvironment(browser.BrowserDynamicTestingModule, browser.platformBrowserDynamicTesting());

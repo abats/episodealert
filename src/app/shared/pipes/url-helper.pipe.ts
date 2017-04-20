@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { CONSTANTS } from '../constant/index';
+import { CONSTANTS } from '../constant/main';
 
 @Pipe({
     name: 'asUrlPipe',
@@ -7,12 +7,12 @@ import { CONSTANTS } from '../constant/index';
 })
 
 export class UrlPipe implements PipeTransform {
-    private imageUrl: string = 'assets/img/missing.png';
+    private imageUrl = 'assets/img/missing.png';
     private returnPoster: any = '';
     private baseUrl: string;
 
     constructor() {
-        this.baseUrl = CONSTANTS.MAIN.APP.IMG_BASE_URL;
+        this.baseUrl = CONSTANTS.APP.IMG_BASE_URL;
     }
 
     transform(poster: string, unique_name: string, size: string) {

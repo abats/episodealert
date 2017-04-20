@@ -1,2 +1,1 @@
-# episodealert
-Episode-Alert NG2
+Episode Alert 

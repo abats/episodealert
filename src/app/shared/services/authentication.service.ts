@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { CONSTANTS } from '../constant/index';
+import { CONSTANTS } from '../constant/main';
 import { User } from '../model/user';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class AuthService {
     private loginUrl: string;
 
     constructor( private http: Http) {
-        this.baseUrl = CONSTANTS.MAIN.APP.API_BASE_URL;
+        this.baseUrl = CONSTANTS.APP.API_BASE_URL;
         this.authCheckUrl = this.baseUrl + 'auth/check';
         this.loginUrl = this.baseUrl + 'auth/login';
         this.user = new User;
