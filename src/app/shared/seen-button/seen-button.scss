@@ -1,0 +1,40 @@
+@import '../../variables';
+
+.ea--seen{
+  width: 100%;
+  height: 30px;
+  position: relative;
+  background-color: pink;
+  display: block;
+
+  .ea-btn--seenuntil,
+  .ea-btn--seenseason{
+//    display: none;
+    position: absolute;
+  }
+
+  .ea-btn--seenuntil{
+    right: 80px;
+  }
+
+  .ea-btn--seenseason{
+    right: 160px;
+  }
+
+  button{
+    width: 120px;
+    right: 0px;
+    position: absolute;
+    border-radius: 0px;
+    font-size: 90%;
+    border: none;
+    color: $bright-highlight;
+    padding: 2px 5px 2px 5px;
+  }
+
+}
+
+// .ea--seen:hover .ea-btn--seenseason,
+// .ea--seen:hover .ea-btn--seenuntil{
+//   display: inline-block;
+// }

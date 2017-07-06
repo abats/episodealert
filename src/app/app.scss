@@ -66,28 +66,7 @@ body {
   letter-spacing: 1px;
 }
 
-/*
- * Seen button
- */
-.ea-btn--seen{
-  border-radius: 0px;
-  font-size: 90%;
-  border: none;
-  color: $bright-highlight;
-  padding: 2px 5px 2px 5px;
-}
 
-.ea-btn--seen:hover{
-  border-radius: 6px/3px;
-  border: none;
-  color: $bright-highlight;
-  padding: 2px 5px 2px 5px;
-}
-
-.ea-btn--notseen{
-  color: #33B37B;
-  border-color: #33B37B;
-}
 
 
 /*

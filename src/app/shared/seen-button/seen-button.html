@@ -1,3 +1,11 @@
-<button class="ea-btn ea-btn--seen" (click)="toggle()">
-    <i class="fa fa-angle-right" aria-hidden="true"></i> {{ buttonLabel }}
-</button>
+<div class="ea--seen">
+    <button class="ea-btn ea-btn--seen" (click)="toggleSingle()">
+        <i class="fa fa-angle-right" aria-hidden="true"></i> {{ buttonLabel }}
+    </button>
+    <button class="ea-btn ea-btn--seenuntil" (click)="toggleUntill()">
+        <i class="fa fa-angle-right" aria-hidden="true"></i> Untill
+    </button>
+    <button class="ea-btn ea-btn--seenseason" (click)="toggleSeason()">
+        <i class="fa fa-angle-right" aria-hidden="true"></i> Season
+    </button>
+</div>

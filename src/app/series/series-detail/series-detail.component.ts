@@ -71,14 +71,15 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
                 this.series = series;
                 console.log(series);
                 this.createSeriesSeasonTabs(series.season_amount);
-                this.getSeriesSeason(series.id, series.season_amount - 1 );
-
-                // this.setActiveTab(series.season_amount - 1);
+                this.getSeriesSeason(series.id, 1 );
+                this.setActiveTab(1);
             }
         );
     }
 
     getSeriesSeason(seriesId: number, seasonNumber: number) {
+
+        console.log('get series season');
         this.seriesService.getSeriesSeason(seriesId, seasonNumber).then(
             (season) => {
                 if (this.series.has_specials) {

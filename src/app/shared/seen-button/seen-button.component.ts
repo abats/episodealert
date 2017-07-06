@@ -17,7 +17,7 @@ export class SeenbuttonComponent {
     constructor( private seriesService: SeriesService ) {
     }
 
-    toggle() {
+    toggleSingle() {
         if (this.episode.seen) {
             this.seriesService.unseeEpisode(this.episode.id, 'until').then(
                 (response) => {
@@ -32,5 +32,13 @@ export class SeenbuttonComponent {
             );
         }
 
+    }
+
+    toggleUntill() {
+        console.log('untill');
+    }
+
+    toggleSeason() {
+        console.log('season');
     }
 }
