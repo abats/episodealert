@@ -4,6 +4,7 @@ import { Series } from '../model/series';
 
 import 'rxjs/add/operator/toPromise';
 import { CONSTANTS } from '../constant/main';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class SeriesService {
@@ -120,7 +121,14 @@ export class SeriesService {
             .catch(this.handleError);
     }
 
+
+
     /* TODO: move to profile service */
+
+    getProfileSeriesTest(): Observable <Series[]> {
+        return this.http.get(this.profileUrl).map(res => res.json());
+    }
+
     getProfileSeries(): Promise<Series[]> {
         return this.http.get(this.profileUrl)
             .toPromise()

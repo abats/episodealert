@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Hero }    from '../shared/model/hero';
 import { Title } from '@angular/platform-browser';
 import { User } from '../shared/model/user';
 import { AuthService } from '../shared/services/authentication.service';
@@ -15,8 +14,6 @@ import { AuthService } from '../shared/services/authentication.service';
 
 export class LoginComponent {
 
-    powers = ['Really Smart', 'Super Flexible', 'Super Hot', 'Weather Changer'];
-    model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
     submitted = false;
     loading = false;
 
@@ -28,13 +25,10 @@ export class LoginComponent {
     ) {
         titleService.setTitle('Episode Alert - Login');
 
-        console.log(this.model);
-        console.log(this.userModel);
     }
 
     onSubmit() {
         this.submitted = true;
-        console.log('submit');
         this.login();
     }
 
@@ -55,6 +49,6 @@ export class LoginComponent {
 
     // TODO: Remove this when we're done
     get diagnostic() {
-        return JSON.stringify(this.model);
+        return JSON.stringify(this.userModel);
     }
 }

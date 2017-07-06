@@ -26,6 +26,8 @@ export class Series {
     status: string;
     trend: string;
     updated_at: string;
+    unseen_episodes: any;
+    archive: boolean;
 
     supername: string = this.name + this.unique_name;
 }

@@ -4,7 +4,10 @@ import { SeriesService } from '../services/series.service';
 @Component({
     selector: 'app-seen',
     templateUrl: 'seen-button.html',
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    styleUrls: [
+        'seen-button.scss'
+    ]
 })
 
 export class SeenbuttonComponent {
