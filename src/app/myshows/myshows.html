@@ -7,24 +7,19 @@
 
             <span class="hidden-xs myshows-filters-label">Filters </span>
             <input type="text" value="lol" [(ngModel)]="search" placeholder="Filter by name">
-            <button class="ea-filter ea-filter--active" ng-class="{'ea-filter--active': seen}" ng-click="toggleUnseen()">
-                <span ng-show="seen == true" class="fa fa-check ng-hide"></span>
-                <!--<span ng-show="seen == false" class="fa fa-plus"></span>-->
+            <button [ngClass]="{'ea-filter--active' : showUnseen}" class="ea-filter" (click)="clickToggleUnseen()">
+                <span [hidden]="!showUnseen" class="fa fa-check ng-hide"></span>
+                <span [hidden]="showUnseen" class="fa fa-plus"></span>
                 unseen
             </button>
-            <button class="ea-filter ea-filter--active" ng-class="{'ea-filter--active': seen}" ng-click="toggleUnseen()">
-                <span ng-show="seen == true" class="fa fa-check ng-hide"></span>
-                <!--<span ng-show="seen == false" class="fa fa-plus"></span>-->
-                currently airing
-            </button>
-            <button class="ea-filter ea-filter--active" ng-class="{'ea-filter--active': !ended}" ng-click="toggleEnded()">
-                <!--<span ng-show="ended == true" class="fa fa-plus"></span>-->
-                <span ng-show="ended == false" class="fa fa-check ng-hide"></span>
+            <button [ngClass]="{'ea-filter--active' : showEnded}" class="ea-filter" ng-class="{'ea-filter--active': !ended}" (click)="clickToggleEnded()">
+                <span [hidden]="!showEnded" class="fa fa-check ng-hide"></span>
+                <span [hidden]="showEnded" class="fa fa-plus"></span>
                 continuing
             </button>
-            <button class="ea-filter ea-filter--active" ng-class="{'ea-filter--active': archive}" ng-click="toggleArchiveSetting()">
-                <span ng-show="archive == true" class="fa fa-check ng-hide"></span>
-                <!--<span ng-show="archive == false" class="fa fa-plus"></span>-->
+            <button [ngClass]="{'ea-filter--active' : showArchive}" class="ea-filter" ng-class="{'ea-filter--active': archive}" (click)="clickToggleArchive()">
+                <span [hidden]="!showArchive" class="fa fa-check ng-hide"></span>
+                <span [hidden]="showArchive" class="fa fa-plus"></span>
                 archived
             </button>
 
@@ -75,14 +70,14 @@
         <div class="col-md-12 col-lg-12 trending-background-color">
 
             <ul class="profile-series" *ngIf="profileSeries && ( profileSeriesView == 'poster' || profileSeriesView == 'poster_big' ) "  [ngClass]="{'big-poster': profileSeriesView == 'poster_big'}">
-                <li class="series" *ngFor="let series of profileSeries | asSearchPipe : 'name' : search ">
+                <li class="series" *ngFor="let series of profileSeries | asSearchPipe : 'name' : search">
                     <div class="series-img">
                         <a [routerLink]="['/series', series.unique_name]">
                             <img class="img-responsive"
                                  src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
                                  alt="{{ series.name }}"/>
                         </a>
-                        <div class="badge">{{ series.unseen_episodes }}</div>
+                        <app-badge class="myshows--badge" color="red" content="{{series.unseen_episodes}}"></app-badge>
                     </div>
                     <div class="series-info">
                         <a [routerLink]="['/series', series.unique_name]">

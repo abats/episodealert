@@ -10,9 +10,11 @@ import { FormsModule }   from '@angular/forms';
 import { OrderDisplayComponent } from './orderDisplay/orderdisplay.component';
 import { WebStorageModule, BROWSER_STORAGE_PROVIDERS } from 'h5webstorage';
 import { MyshowsRoutingModule } from './myshows.routes';
+import { BadgeComponent } from './badge/badge.component';
 
 @NgModule({
     declarations: [
+        BadgeComponent,
         OrderDisplayComponent,
         MyshowsComponent,
     ],
