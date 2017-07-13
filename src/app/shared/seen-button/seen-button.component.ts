@@ -13,32 +13,25 @@ import { SeriesService } from '../services/series.service';
 export class SeenbuttonComponent {
     @Input() episode: any;
     @Input() buttonLabel: string;
+    @Input() seen: boolean;
 
     constructor( private seriesService: SeriesService ) {
     }
 
-    toggleSingle() {
-        if (this.episode.seen) {
-            this.seriesService.unseeEpisode(this.episode.id, 'until').then(
-                (response) => {
-                    this.episode.seen = !this.episode.seen;
-                }
-            );
-        }else {
-            this.seriesService.seenEpisode(this.episode.id, 'until').then(
-                (response) => {
-                    this.episode.seen = !this.episode.seen;
-                }
-            );
-        }
-
+    toggleSeen(mode) {
+        this.seriesService.seenEpisode(this.episode.id, mode).then(
+            (response) => {
+                this.episode.seen = !this.episode.seen;
+            }
+        );
     }
 
-    toggleUntill() {
-        console.log('untill');
+    toggleUnseen(mode) {
+        this.seriesService.unseeEpisode(this.episode.id, mode).then(
+            (response) => {
+                this.episode.seen = !this.episode.seen;
+            }
+        );
     }
 
-    toggleSeason() {
-        console.log('season');
-    }
 }
