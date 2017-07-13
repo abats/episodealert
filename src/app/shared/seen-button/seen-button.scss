@@ -2,39 +2,39 @@
 
 .ea--seen{
   width: 100%;
-  height: 30px;
   position: relative;
-  background-color: pink;
   display: block;
 
   .ea-btn--seenuntil,
   .ea-btn--seenseason{
-//    display: none;
+    display: none;
     position: absolute;
   }
 
   .ea-btn--seenuntil{
-    right: 80px;
+    right: 94px;
   }
 
   .ea-btn--seenseason{
-    right: 160px;
+    right: 153px;
   }
 
   button{
-    width: 120px;
+    background-color: $background-color;
+    width: 60px;
     right: 0px;
-    position: absolute;
     border-radius: 0px;
-    font-size: 90%;
-    border: none;
+    font-size: 84%;
     color: $bright-highlight;
-    padding: 2px 5px 2px 5px;
+    padding: 1px 1px 1px 1px;
+    height: 26px;
+    line-height: 22px;
+    border: 1px solid $bright-highlight;
   }
 
 }
 
-// .ea--seen:hover .ea-btn--seenseason,
-// .ea--seen:hover .ea-btn--seenuntil{
-//   display: inline-block;
-// }
+ .ea--seen:hover .ea-btn--seenseason,
+ .ea--seen:hover .ea-btn--seenuntil{
+   display: inline-block;
+ }
