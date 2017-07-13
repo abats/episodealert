@@ -138,7 +138,15 @@ export class SeriesService {
 
     /* TODO: caching ? */
     getProfileStats(): Promise<any> {
-        return this.http.get(this.statsUrl)
+        return this.getProfileStatsWithFilter(null, null);
+    }
+
+
+    getProfileStatsWithFilter(from: Date, to: Date): Promise<any> {
+        // dates are formatted as yyyy-MM-dd
+        let completeUrl = this.statsUrl + (from ? '?from=' + from.toISOString().slice(0, 10) : '')
+         + (to ? '&to=' + to.toISOString().slice(0, 10) : '');
+        return this.http.get(completeUrl)
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);

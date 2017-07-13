@@ -4,7 +4,8 @@
   "/series/top" : "/top",
 
   "/profile/following": "/following",
-  "/profile/stats": "/stats",
+  "/api/profile/stats?from=*&to=*": "/stats_with_filter",
+  "/api/profile/stats": "/stats",  
 
   "/auth/check" : "/check",
 
