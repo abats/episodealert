@@ -23,12 +23,11 @@
 }
 
 .home-banners{
-      margin-bottom: 30px;
+    margin-bottom: 20px;
     
   li:first-child {
     padding-right: 15px;
 
-    
 
     .spotlight-button-location{
       right: 40px;
@@ -280,7 +279,7 @@ ul{
   justify-content: space-between;
 
   li{
-    background-color: $primary-lighter;
+    background-color: $dark-grey-background;
     display: inline-block;
     width: 30%;
   }
