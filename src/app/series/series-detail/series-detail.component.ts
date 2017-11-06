@@ -16,6 +16,7 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
 
     series: Series;
     uniqueName: string;
+    seriesUnseenAmount: Array<any>;
 
     public tabs: Array<any> = [];
     public tabs2: any[] = [
@@ -37,12 +38,12 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
                 if (this.series.has_specials && i === 0) {
                     this.tabs.push( {title: 'Specials', content: [] });
                 }else {
-                    this.tabs.push( {title: 'Season ' +  i , content: []} );
+                    this.tabs.push( {title: 'S ' +  i , content: []} );
                 }
             }
         }else {
             for (let i = 0; i < seasonAmount; i++) {
-                this.tabs.push( {title: 'Season ' +  (i + 1)  , content: []} );
+                this.tabs.push( {title: 'S ' +  (i + 1)  , content: []} );
             }
 
         }
@@ -69,7 +70,7 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
         this.seriesService.getSingleSeries(this.uniqueName).then(
             (series) => {
                 this.series = series;
-                console.log(series);
+                this.getSeriesUnseenAmount();
                 this.createSeriesSeasonTabs(series.season_amount);
                 this.getSeriesSeason(series.id, 1 );
                 this.setActiveTab(1);
@@ -111,6 +112,15 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
     public removeTabHandler(/*tab:any*/): void {
         console.log('Remove Tab handler');
     };
+
+    public getSeriesUnseenAmount() {
+        this.seriesService.getUnseenAmountBySeries( this.series.id, 5).then(
+            (unseenAmount) => {
+                this.seriesUnseenAmount = unseenAmount;
+                console.log(unseenAmount);
+            }
+        );
+    }
 
     ngOnInit() {
         this.getSeries();

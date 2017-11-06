@@ -6,6 +6,7 @@ export class Series {
     banner_image_converted: boolean;
     category: string;
     count: string;
+    last_seen_season: number;
     created_at: string;
     description: string;
     episode_amount: string;

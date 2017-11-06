@@ -21,6 +21,7 @@ export class SeriesService {
     private unfollowUrl: string;
     private seenUrl: string;
     private unseenUrl: string;
+    private unseenAmountBySeries: string;
 
     constructor( private http: Http ) {
         this.baseUrl = CONSTANTS.APP.API_BASE_URL;
@@ -36,6 +37,7 @@ export class SeriesService {
         this.unfollowUrl = this.baseUrl + 'unfollow/';
         this.unseenUrl = this.baseUrl + 'series/unseen/';
         this.seenUrl = this.baseUrl + 'series/seen/';
+        this.unseenAmountBySeries = this.baseUrl + 'series/unseenamountbyseries/';
     }
 
     /*
@@ -77,6 +79,13 @@ export class SeriesService {
     /*
      * end seen
      */
+
+    getUnseenAmountBySeries(seriesId, seasons) {
+        return this.http.get(this.unseenAmountBySeries + seriesId + '/' + seasons)
+            .toPromise()
+            .then(response => response.json())
+            .catch(this.handleError);
+    }
 
     getSingleSeries(uniqueName): Promise<Series> {
         return this.http.get(this.singleSeriesUrl + uniqueName)

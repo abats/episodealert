@@ -1,24 +1,24 @@
 <div class="ea--seen" *ngIf="!seen">
     <button class="ea-btn ea-btn--seen" (click)="toggleSeen()">
-        <i class="fa fa-angle-right" aria-hidden="true"></i> {{ buttonLabel }}
+        <i aria-hidden="true"></i> {{ buttonLabel }}
     </button>
     <button class="ea-btn ea-btn--seenuntil" (click)="toggleSeen('until')">
-        <i class="fa fa-angle-right" aria-hidden="true"></i> Untill
+        <i aria-hidden="true"></i> Untill
     </button>
     <button class="ea-btn ea-btn--seenseason" (click)="toggleSeen('season')">
-        <i class="fa fa-angle-right" aria-hidden="true"></i> Season
+        <i aria-hidden="true"></i> Season
     </button>
 </div>
 
-<div class="ea--seen" *ngIf="seen">
+<div class="ea--seen seen" *ngIf="seen">
     <button class="ea-btn ea-btn--seen" (click)="toggleUnseen()">
-        <i class="fa fa-angle-right" aria-hidden="true"></i> {{ buttonLabel }}
+        <i aria-hidden="true"></i> {{ buttonLabel }}
     </button>
     <button class="ea-btn ea-btn--seenuntil" (click)="toggleUnseen('until')">
-        <i class="fa fa-angle-right" aria-hidden="true"></i> Untill
+        <i aria-hidden="true"></i> Untill
     </button>
     <button class="ea-btn ea-btn--seenseason" (click)="toggleUnseen('season')">
-        <i class="fa fa-angle-right" aria-hidden="true"></i> Season
+        <i aria-hidden="true"></i> Season
     </button>
 </div>
 

@@ -9,7 +9,7 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-4 series-left">
+            <div class="col-xs-12 col-sm-12 col-md-3 series-left">
 
                 <img class="img-responsive hidden-xs hidden-sm"
                      src="{{ series.poster_image | asUrlPipe : series.unique_name : 'medium'  }}"
@@ -28,8 +28,11 @@
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-8 seasons">
+            <div class="col-xs-12 col-sm-12 col-md-9 seasons">
                 <tabset *ngIf="tabs">
+
+
+
                     <tab *ngFor="let tab of tabs let i = index;"
                          [heading]="tab.title"
                          (select)="loadTab(i)"
@@ -38,8 +41,12 @@
                          [removable]="tab.removable"
                          (removed)="removeTabHandler(tab)">
 
+                        <ng-template tabHeading>
+                            <span class="unseen--badge">{{ seriesUnseenAmount && seriesUnseenAmount[i] }}</span>
+                        </ng-template>
+
                         <table class="episode-table">
-                            <tr *ngFor="let episode of tab?.content">
+                            <tr *ngFor="let episode of tab?.content" [ngClass]="{'seen' : episode.seen }">
                                 <td class="episode-table-number">{{ episode.episode }}</td>
                                 <td class="episode-table-description">{{ episode.name }}</td>
                                 <td>{{ episode.airdate }}</td>

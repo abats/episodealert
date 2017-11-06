@@ -666,6 +666,10 @@ $height-xs:   (floor($font-size-small * 1.2) + $padding-small-vertical + 1);
 
 //tab overwrite
 
+.nav-tabs{
+  border: none;
+}
+
 tabset ul li a{
   background-color: $light-grey-background;
   color: $light-text;
