@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserStatsComponent } from './user-stats/user-stats.component';
 import { RouterModule } from '@angular/router';
-import { SearchPipe, FanartPipe, UrlPipe, OrderBy, FilterByPipe } from './pipes/index';
+import { SearchPipe, FanartPipe, UrlPipe, OrderBy, FilterByPipe, LimitToPipe } from './pipes/index';
 import { FollowbuttonComponent } from './follow-button/index';
 import { SeenbuttonComponent } from './seen-button/index';
 
@@ -20,6 +20,7 @@ import { SeenbuttonComponent } from './seen-button/index';
         UrlPipe,
         FanartPipe,
         FilterByPipe,
+        LimitToPipe,
         FollowbuttonComponent,
         SeenbuttonComponent
     ],
@@ -32,6 +33,7 @@ import { SeenbuttonComponent } from './seen-button/index';
         FilterByPipe,
         UrlPipe,
         FanartPipe,
+        LimitToPipe,
         FollowbuttonComponent,
         SeenbuttonComponent
     ]

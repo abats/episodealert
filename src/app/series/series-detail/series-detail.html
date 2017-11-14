@@ -39,10 +39,19 @@
                          (deselect)="tab.active = false"
                          [disabled]="tab.disabled"
                          [removable]="tab.removable"
-                         (removed)="removeTabHandler(tab)">
+                         (removed)="removeTabHandler(tab)"
+                         [active]="tab.active">
 
                         <ng-template tabHeading>
-                            <span class="unseen--badge">{{ seriesUnseenAmount && seriesUnseenAmount[i] }}</span>
+
+                            <span *ngIf="seriesUnseenAmount && seriesUnseenAmount[i] == 0" class="unseen--badge unseen--badge-done">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                            </span>
+
+                            <span *ngIf="seriesUnseenAmount && seriesUnseenAmount[i] > 0"  class="unseen--badge">
+                                {{ seriesUnseenAmount && seriesUnseenAmount[i] }}
+                            </span>
+
                         </ng-template>
 
                         <table class="episode-table">

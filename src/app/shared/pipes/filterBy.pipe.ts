@@ -13,3 +13,4 @@ export class FilterByPipe implements PipeTransform {
         return items.filter(it => it[field] === value);
     }
 }
+

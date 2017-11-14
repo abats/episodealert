@@ -19,11 +19,6 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
     seriesUnseenAmount: Array<any>;
 
     public tabs: Array<any> = [];
-    public tabs2: any[] = [
-        {title: 'Dynamic Title 1', content: 'Dynamic content 1'},
-        {title: 'Dynamic Title 2', content: 'Dynamic content 2', disabled: true},
-        {title: 'Dynamic Title 3', content: 'Dynamic content 3', removable: true}
-    ];
 
     subscription: Subscription;
 
@@ -33,22 +28,20 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
 
         if ( this.series.has_specials ) {
             for (let i = 0; i < seasonAmount; i++) {
-                console.log('add a tab');
 
                 if (this.series.has_specials && i === 0) {
-                    this.tabs.push( {title: 'Specials', content: [] });
+                    this.tabs.push( {title: 'Specials', content: [], active : false });
                 }else {
-                    this.tabs.push( {title: 'S ' +  i , content: []} );
+                    this.tabs.push( {title: 'Season ' +  i , content: [] , active : false } );
                 }
             }
         }else {
             for (let i = 0; i < seasonAmount; i++) {
-                this.tabs.push( {title: 'S ' +  (i + 1)  , content: []} );
+                this.tabs.push( { title: 'Season ' +  (i + 1)  , content: [], active : false } );
             }
 
         }
 
-        console.log(this.tabs);
     }
 
     constructor(
@@ -66,21 +59,32 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
 
     }
 
+    setTitle(seriesTitle) {
+        this.titleService.setTitle(seriesTitle + ' | ' + 'Episode Alert');
+    }
+
     getSeries() {
         this.seriesService.getSingleSeries(this.uniqueName).then(
             (series) => {
                 this.series = series;
+
                 this.getSeriesUnseenAmount();
                 this.createSeriesSeasonTabs(series.season_amount);
                 this.getSeriesSeason(series.id, 1 );
-                this.setActiveTab(1);
+                this.setTitle(this.series.name);
+
+                if (this.series.has_specials) {
+                    this.setActiveTab(this.series.last_seen_season);
+                } else {{
+                    this.setActiveTab(this.series.last_seen_season - 1);
+                }}
+
             }
         );
     }
 
     getSeriesSeason(seriesId: number, seasonNumber: number) {
 
-        console.log('get series season');
         this.seriesService.getSeriesSeason(seriesId, seasonNumber).then(
             (season) => {
                 if (this.series.has_specials) {
@@ -103,32 +107,28 @@ export class SeriesDetailComponent implements OnInit, OnDestroy {
     }
 
     public setActiveTab(index: number): void {
-        console.log(index);
-        this.loadTab(index);
-        console.log('set active tab');
+        console.log('set one active: ' + index);
+        console.log(this.tabs);
         this.tabs[index].active = true;
-    };
-
-    public removeTabHandler(/*tab:any*/): void {
-        console.log('Remove Tab handler');
     };
 
     public getSeriesUnseenAmount() {
         this.seriesService.getUnseenAmountBySeries( this.series.id, 5).then(
             (unseenAmount) => {
                 this.seriesUnseenAmount = unseenAmount;
-                console.log(unseenAmount);
+
+                if (this.series.has_specials) {
+                    this.seriesUnseenAmount.unshift('specials');
+                }
             }
         );
     }
 
     ngOnInit() {
         this.getSeries();
-        console.log('init');
     }
 
     ngOnDestroy() {
-        // prevent memory leak by unsubscribing
         this.subscription.unsubscribe();
     }
 }

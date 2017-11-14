@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { Navbar2Component } from './navbar.component';
 import { UserModule } from '../../user/user.module';
+import { SearchModule } from '../../search/search.module';
 
 @NgModule({
     declarations: [
@@ -11,7 +12,8 @@ import { UserModule } from '../../user/user.module';
     imports: [
         RouterModule,
         BrowserModule,
-        UserModule
+        UserModule,
+        SearchModule
     ],
     exports: [
         Navbar2Component

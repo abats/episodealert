@@ -1,0 +1,33 @@
+@import '../variables';
+
+.search-results{
+
+  position: absolute;
+  z-index: 100;
+  width: 392px;
+  background-color: #fff;
+  height: 440px;
+  overflow: scroll;
+  top: 65px;
+  left: 364px;
+
+  li{
+    padding: 14px;
+    height: 104px;
+
+    &:hover{
+      background-color: lighten($light-text, 10%)
+    }
+  }
+
+  a{
+    color: #000;
+  }
+
+  img{
+    margin-right: 14px;
+    float: left;
+    width: 50px;
+  }
+
+}
